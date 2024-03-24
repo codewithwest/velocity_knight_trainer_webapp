@@ -1,0 +1,88 @@
+:root {
+  --main-text-color:#61dafb;
+  --main-bg-color: #282c34;
+}
+
+.main {
+  width: auto;
+  background: var(--main-bg-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 100vh;
+  color: var(--main-text-color);
+}
+
+.nav {
+padding: 5px;
+  box-shadow: 3px 3px 3px rgba(35, 34, 36, 0.8),
+    -3px -3px 3px rgba(33, 30, 35, 0.8);
+    border-radius: 5px;
+}
+.main_nav_link{
+  text-decoration: none;
+  margin: 0 5px;
+  width: 100px;
+  height: 100px;
+  box-shadow: 1px 1px rgba(166, 197, 8, 0.7),
+      -1px -1px rgba(166, 197, 8, 0.7);
+  
+}
+
+.login-state {
+  height: 80px;
+  width: 80px;
+  top: 0;
+  right: 0;
+  background: rgba(200, 233, 39, 0.7);
+  box-shadow: 1px 1px rgba(166, 197, 8, 0.7),
+      -1px -1px rgba(166, 197, 8, 0.7);
+}
+.login-state>svg{
+  fill: #161718;
+  width: 30px;
+  height: 30px;
+}
+.main_nav_link:hover {
+  transition: all .7s;
+  color: black;
+  font-weight: bold;
+  width: 105px;
+  background: rgba(126, 127, 8, 0.5);
+  box-shadow:inset 1.5px 1.5px 3px rgba(8, 18, 197, 0.7),
+     inset -1.5px -1.5px 3px rgba(8, 36, 197, 0.7);
+}
+
+
+ 
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

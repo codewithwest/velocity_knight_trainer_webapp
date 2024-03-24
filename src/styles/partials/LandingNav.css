@@ -1,0 +1,39 @@
+
+.landing-nav {
+    min-height: 10vh;
+}
+.landing-nav img{
+    margin: 10px;
+    width:65px;
+    height: 65px;
+    border-radius: 1000px;
+}
+.landing-nav h4{
+    font-style: italic;
+    text-decoration: wavy;
+    }
+.landing-nav>div>a{
+    margin: 5px 15px;
+    font-size: 35px;
+    transition: all .5s;
+}
+.landing-nav i{
+    fill: inherit;
+}
+.landing-nav>div a:hover{
+    color: var(--main-text-color);
+    transition:all .5s;
+    transform: translate(1px , -2px);
+}
+.landing-nav>div a:hover .popup .popuptext {
+    transition: all 1s;
+    display: block;
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.more>ul{
+    list-style: none;
+    padding:20px 10px;
+}
+.more>ul>li{
+    font-size: large;
+    padding-top: 10px;
+}
+.more-card{
+    height: auto;
+    margin: 30px 10px;
+    text-align: center;
+    animation: more-card 2.6s linear infinite;
+    background: linear-gradient(var(--rotate), #474747,
+     #3b3b3b, rgb(6, 184, 201),rgb(6, 201, 52));
+    display: flex;
+}
+.more-card>div{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    width: 100%;
+    margin: .5px;
+    background: #3b3b3b;
+}
+.more-card>div>h4 {
+    padding: 10px;
+    margin: 0 20px;
+    box-shadow: 0 .4px var(--main-text-color);
+}
+.more-card>div>p {
+    padding: 10px;
+    margin: 10px 30px;
+}
+.more-card>div>a {
+    padding: 10px;
+    text-decoration: none;
+    color: inherit;
+    width: fit-content;
+    margin-bottom: 10px;
+    box-shadow: .4px .4px 5px var(--main-text-color);
+    animation: linkMove 10s ease-in-out infinite;
+    animation-delay: 200ms;
+}
+
+@keyframes linkMove {
+    0%{
+        margin-left: 70%;
+    }
+    50% {
+        margin-left: 35%;
+    }
+    
+    100%{
+        margin-left: 0%;
+    }
+}
+
+
+@keyframes more-card {
+    0% {
+        --rotate: 0deg;
+    }
+    100% {
+        --rotate: 360deg;
+    }
+}
+
+@media screen and (min-width:900px) {
+    .more {
+            width:80%;
+    }
+}
