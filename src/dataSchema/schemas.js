@@ -10,7 +10,7 @@ const initial_login_form_data = {
     login_password: "",
 }
 
-export { 
+export {
     initial_registration_form_data,
-    initial_login_form_data  
-    }
+    initial_login_form_data
+}
