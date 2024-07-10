@@ -10,6 +10,14 @@ import gqlDefined from './dataSchema/graphql/main';
 // import ProgramCards from './components/programCard';
 import { useQuery } from '@apollo/client';
 import ProgramCards from './components/programCard';
+import './styles/Layout.css'
+import FlashOnIcon from '@mui/icons-material/FlashOn';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import SettingsIcon from '@mui/icons-material/Settings';
+
+import { Link } from 'react-router-dom';
+
 const { getPrograms } = gqlDefined
 
 
@@ -24,6 +32,7 @@ function App() {
 
   let all_programs = useMemo(() => {
     if (loading) {
+      console.error(process.env.REACT_APP_API_URL)
       return [" "];
     } else {
       // console.log(data?.getPrograms);
@@ -79,65 +88,123 @@ function App() {
   // if (error) return `Error! ${error.message}`;
 
   return (
+    <main>
+      <div class="bg-text pos-abs">
+        Faster Further Higher
+      </div>
 
-    <main className="flex min-h-screen flex-col items-center bg-black justify-between items-center p-2
-    bg-gradient-to-bl from-stone-800 via-blue-1000 to-black-900 min-h-dvh">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p
-          className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300  text-white-100
-        bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800 text-2xl text-bold
-        dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-600/30 text-gray-200"
-        >
-          Velocity Knight Trainer
+
+      <div className='main-header  w-100 pos-rel'>
+        <p className='d-flex h-100'>
+          Velovity Kight Trainer
         </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white 
-        via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0 "
-            href="https://www.google.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By <p className="text-xl">{" WestDynamics"}</p>
-            {/* <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            /> */}
-          </a>
+
+      </div>
+      <div className='body d-flex h-100 w-100'>
+        <div className='nav-bar'>
+          <Link className='nav-link'>
+            <p className='path'>
+              Profile
+            </p>
+            <span className='icon'>
+              <AccountCircleIcon>Profile</AccountCircleIcon>
+            </span>
+          </Link>
+          <Link className='nav-link'>
+            <p className='path'>
+              Programs
+            </p>
+            <span className='icon'>
+              <FlashOnIcon>Programs</FlashOnIcon>
+            </span>
+          </Link>
+          <Link className='nav-link'>
+            <p className='path'>
+              Stats
+            </p>
+            <span className='icon'>
+              <AutoGraphIcon>Stats</AutoGraphIcon>
+            </span>
+          </Link>
+          <Link className='nav-link'>
+            <p className='path'>
+              Settings
+            </p>
+            <span className='icon'>
+              <SettingsIcon>Settings</SettingsIcon>
+            </span>
+          </Link>
+
+        </div>
+        <div class="content d-flex w-100 ">
+          {all_programs?.map((program, index) =>
+          (
+            <div className="">
+              {ProgramCards(program)}
+            </div>
+          ))}
         </div>
       </div>
-
-      <div className="flex flex-wrap container">
-        {all_programs?.map((program, index) =>
-        (
-          <div className="">
-            {ProgramCards(program)}
-          </div>
-        ))}
-      </div>
-
-      <div
-        className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full 
-      before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent
-      before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3
-      after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br
-       before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff]
-       after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]"
-      >
-        {/* <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        /> */}
-      </div>
     </main>
+
+    // <main className="flex min-h-screen flex-col items-center bg-black justify-between items-center p-2
+    // bg-gradient-to-bl from-stone-800 via-blue-1000 to-black-900 min-h-dvh">
+    //   <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
+    //     <p
+    //       className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300  text-white-100
+    //     bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800 text-2xl text-bold
+    //     dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-600/30 text-gray-200"
+    //     >
+    //       Velocity Knight Trainer
+    //     </p>
+    //     <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white 
+    //     via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
+    //       <a
+    //         className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0 "
+    //         href="https://www.google.com/"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //       >
+    //         By <p className="text-xl">{" WestDynamics"}</p>
+    //         {/* <Image
+    //           src="/vercel.svg"
+    //           alt="Vercel Logo"
+    //           className="dark:invert"
+    //           width={100}
+    //           height={24}
+    //           priority
+    //         /> */}
+    //       </a>
+    //     </div>
+    //   </div>
+
+    //   <div className="flex flex-wrap container">
+    //     {all_programs?.map((program, index) =>
+    //     (
+    //       <div className="">
+    //         {ProgramCards(program)}
+    //       </div>
+    //     ))}
+    //   </div>
+
+    //   <div
+    //     className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full 
+    //   before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent
+    //   before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3
+    //   after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br
+    //    before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff]
+    //    after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]"
+    //   >
+    //     {/* <Image
+    //       className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+    //       src="/next.svg"
+    //       alt="Next.js Logo"
+    //       width={180}
+    //       height={37}
+    //       priority
+    //     /> */}
+    //   </div>
+    // </main>
 
 
 

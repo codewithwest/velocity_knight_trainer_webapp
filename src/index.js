@@ -11,7 +11,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const client = new ApolloClient({
-  uri: process.env.PUBLIC_URL_TEST,
+  uri: process.env.REACT_APP_API_URL,
   cache: new InMemoryCache()
 });
 

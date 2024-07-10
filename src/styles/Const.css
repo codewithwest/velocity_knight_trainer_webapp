@@ -1,3 +1,14 @@
+:root {
+    --primary-bg-color: rgba(240, 249, 241, 0.473);
+    --secondary-bg-color: rgba(19, 167, 216, 0.318);
+    --additional-bg-color: rgba(141, 229, 0, 0.251);
+    --input-box-shadow: 1px 1px 1px rgba(240, 249, 241, 0.573),
+        -1px -1px 1px rgba(240, 249, 241, 0.573);
+    --third-border-color: rgba(240, 249, 241, 0.473);
+    --second-border-color: rgba(141, 229, 0, 0.251);
+}
+
+
 .h-100 {
     height: 100%;
 }
@@ -162,7 +173,7 @@
     padding: 5px 15px;
     position: absolute;
     z-index: 1;
-    top:96%;
+    top: 96%;
     right: 2px;
     margin-left: -90px;
 }
@@ -178,6 +189,7 @@
     border-style: solid;
     border-color: transparent transparent var(--main-text-color) transparent;
 }
+
 .popup:hover .popup .popuptext {
     display: block;
 }
