@@ -6,14 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-
+import { ApolloProvider } from '@apollo/client';
+import client from './providers/apolloClient';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-const client = new ApolloClient({
-  uri: process.env.REACT_APP_API_URL,
-  cache: new InMemoryCache()
-});
 
 root.render(
   <React.StrictMode>

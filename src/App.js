@@ -1,89 +1,66 @@
-// import './App.css';
-import { useMemo } from 'react';
-// import { displayHandler } from './functions/ConstFunctions';
-// import { logged_in_icon, logged_out_icon } from './functions/ConstIcons';
-// import { resolve } from './functions/ConstVars';
-// import { Route, Routes, Link } from "react-router-dom"
-// import { About, AthleteProfile, CreateSession, Footer, Home, LandingNavBar, Login, Register, SessionLog } from './functions/RoutesProvider';
-// import More from './templates/info/More';
-import gqlDefined from './dataSchema/graphql/main';
-// import ProgramCards from './components/programCard';
+import './App.css';
+import { useMemo, useState, useEffect } from 'react';
+import { displayHandler } from './functions/ConstFunctions';
+import { logged_in_icon, logged_out_icon } from './functions/ConstIcons';
+import { resolve } from './functions/ConstVars';
+import { Route, Routes } from "react-router-dom"
+import { About, AthleteProfile, CreateSession, Footer, Home, LandingNavBar, Login, Register, SessionLog } from './functions/RoutesProvider';
+import More from './templates/info/More';
 import { useQuery } from '@apollo/client';
-import ProgramCards from './components/programCard';
 import './styles/Layout.css'
-import FlashOnIcon from '@mui/icons-material/FlashOn';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
-import SettingsIcon from '@mui/icons-material/Settings';
 
-import { Link } from 'react-router-dom';
 
-const { getPrograms } = gqlDefined
-
+import navigationBar from './templates/partials/navigationBar';
+import Programs from './templates/routes/Programs';
 
 // const display_handler = new displayHandler()
 function App() {
   // const { data, loading, error } = useLazyQuery(getPrograms, { variables: { key: 1 } });
-  const { data, loading } = useQuery(getPrograms, {
-    variables: { key: 1 },
-    fetchPolicy: "cache-and-network",
-    nextFetchPolicy: "cache-first",
-  });
 
-  let all_programs = useMemo(() => {
-    if (loading) {
-      console.error(process.env.REACT_APP_API_URL)
-      return [" "];
-    } else {
-      // console.log(data?.getPrograms);
-      return data?.getPrograms;
-    }
-  }, [loading, data]);
+  var session_token = sessionStorage.getItem('token')
+  const [initial_login_state, set_initial_login_state] = useState()
+  const [login_data, setLoginData] = useState()
+  useEffect(() => {
+    session_token
+      ? set_initial_login_state(true) : set_initial_login_state(false)
 
-  // var session_token = sessionStorage.getItem('token')
-  // const [initial_login_state, set_initial_login_state] = useState()
-  // const [login_data, setLoginData] = useState()
-  // useEffect(() => {
-  //   session_token
-  //     ? set_initial_login_state(true) : set_initial_login_state(false)
+    const getLoginState = () => {
+      const headers = {
+        mode: 'cors',
+        'Content-Type': 'application/json',
+        'authorization': `Bearer ${sessionStorage.getItem('token')}`
+      }
+      // if (data) {
+      //   console.log(data)
+      // }
+      //do something when we click
+      // "proxy": "https://node-rest-six.vercel.app/",
+      fetch(`${resolve}/velocity_knight_trainer/data`, { headers })
+        .then(async res => await res.json())
+        .then(data => {
+          if (data.message) {
+            set_initial_login_state(true)
+            setLoginData(data.authorizedData.user)
+          } else
+            set_initial_login_state(false)
+        })
+        .catch(e => console.log(e))
+    };
 
-  //   const getLoginState = () => {
-  //     const headers = {
-  //       mode: 'cors',
-  //       'Content-Type': 'application/json',
-  //       'authorization': `Bearer ${sessionStorage.getItem('token')}`
-  //     }
-  //     if (data) {
-  //       console.log(data)
-  //     }
-  //do something when we click
-  // "proxy":"https://node-rest-six.vercel.app/",
-  // fetch(`${resolve}/velocity_knight_trainer/data`, { headers })
-  //   .then(async res => await res.json())
-  //   .then(data => {
-  //     if (data.message) {
-  //       set_initial_login_state(true)
-  //       setLoginData(data.authorizedData.user)
-  //     } else
-  //       set_initial_login_state(false)
-  //   })
-  //   .catch(e => console.log(e))
-  // };
+    return () => {
+      session_token == null ? console.log('No Session Available') :
+        getLoginState()
 
-  //   return () => {
-  //     session_token == null ? console.log('No Session Available') :
-  //       getLoginState()
+    };
 
-  //   };
+  }, [])
+  const [login_state, loginState] = useState(initial_login_state)
+  function handleLoginState() {
+    // Here, we invoke the callback with the new value
+    loginState(!login_state)
+    set_initial_login_state(!initial_login_state)
 
-  // }, [])
-  // const [login_state, loginState] = useState(initial_login_state)
-  // function handleLoginState() {
-  // Here, we invoke the callback with the new value
-  //   loginState(!login_state)
-  //   set_initial_login_state(!initial_login_state)
-
-  // }
+  }
   // if (loading) return 'Loading...';
   // if (error) return `Error! ${error.message}`;
 
@@ -92,57 +69,28 @@ function App() {
       <div class="bg-text pos-abs">
         Faster Further Higher
       </div>
-
-
       <div className='main-header  w-100 pos-rel'>
         <p className='d-flex h-100'>
-          Velovity Kight Trainer
+          Velocity Knight Trainer
         </p>
-
       </div>
       <div className='body d-flex h-100 w-100'>
-        <div className='nav-bar'>
-          <Link className='nav-link'>
-            <p className='path'>
-              Profile
-            </p>
-            <span className='icon'>
-              <AccountCircleIcon>Profile</AccountCircleIcon>
-            </span>
-          </Link>
-          <Link className='nav-link'>
-            <p className='path'>
-              Programs
-            </p>
-            <span className='icon'>
-              <FlashOnIcon>Programs</FlashOnIcon>
-            </span>
-          </Link>
-          <Link className='nav-link'>
-            <p className='path'>
-              Stats
-            </p>
-            <span className='icon'>
-              <AutoGraphIcon>Stats</AutoGraphIcon>
-            </span>
-          </Link>
-          <Link className='nav-link'>
-            <p className='path'>
-              Settings
-            </p>
-            <span className='icon'>
-              <SettingsIcon>Settings</SettingsIcon>
-            </span>
-          </Link>
-
-        </div>
+        {navigationBar()}
         <div class="content d-flex w-100 ">
-          {all_programs?.map((program, index) =>
-          (
-            <div className="">
-              {ProgramCards(program)}
-            </div>
-          ))}
+          <Routes>
+            <Route path="/" element={<Programs />} />
+            <Route path="/app/about" element={<About />} />
+            <Route path="/app/more" element={<More />} />
+            <Route path="/new/session" element={<CreateSession />} />
+            <Route path="/sessions/collection" element={<SessionLog />} />
+            <Route path="/athlete/profile" element={<AthleteProfile />} />
+            <Route path="/app/auth/user/register" element={<Register />} />
+            <Route path="/app/auth/user/login" element={<Login />} onChange={handleLoginState}
+              value={initial_login_state ? login_data : ""} />
+            <Route path="/app/auth/user/profile" element={<AthleteProfile />} />
+            <Route path="/user/programs" element={<AthleteProfile />} />
+          </Routes>
+
         </div>
       </div>
     </main>
@@ -263,18 +211,7 @@ function App() {
   // <LandingNavBar />
   {/* : true} */ }
   {/* <div className='home body-cont fill'>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/app/about" element={<About />} />
-            <Route path="/app/more" element={<More />} />
-            <Route path="/new/session" element={<CreateSession />} />
-            <Route path="/sessions/collection" element={<SessionLog />} />
-            <Route path="/athlete/profile" element={<AthleteProfile />} />
-            <Route path="/app/auth/user/register" element={<Register />} />
-            <Route path="/app/auth/user/login" element={<Login />} onChange={handleLoginState}
-              value={initial_login_state ? login_data : ""} />
-            <Route path="/app/auth/user/profile" element={<AthleteProfile />} />
-          </Routes>
+         
         </div>
         <Footer />
       </div> */}

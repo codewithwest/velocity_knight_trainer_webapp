@@ -3,10 +3,6 @@ import "../../src/styles/components/programCard.css"
 
 export default function ProgramCards(program) {
     return (
-        // <div>
-        //     {
-        //         all_programs?.map((program, index) =>
-        //         (
         <Link key={1} href="/" className="block m-2 max-w-sm p-6  
                   border-gray-900 rounded-lg shadow hover:bg-gray-900
                   dark:bg-gray-800 dark:border-gray-800 dark:hover:bg-black-200 no-underline">
@@ -41,8 +37,5 @@ export default function ProgramCards(program) {
                 </div>
             </div>
         </Link>
-        //         ))
-        //     }
-        // </div>
     )
 }
