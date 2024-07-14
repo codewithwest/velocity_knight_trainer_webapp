@@ -1,4 +1,4 @@
-import { main_logo } from "./imageProvider"
+import { main_logo } from "../providers/image_provider"
 
 let aboutInfoText, aboutCardText,
     moreList

@@ -2,7 +2,7 @@ import "../../styles/auth/Login.css";
 import "../../styles/constants.css";
 import { useEffect, useMemo, useState } from "react";
 import { initial_login_form_data } from "../../dataSchema/schemas.js";
-import { displayHandler, displaySwitch } from "../../functions/ConstFunctions";
+import { displayHandler, displaySwitch } from "../../functions/const_functions.js";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import user_queries_mutations from "../../dataSchema/graphql/user.js";

@@ -3,7 +3,7 @@ import { AthleteProfile } from '../templates/routes/AthleteProfile';
 import { SessionLog } from '../templates/routes/SessionLog';
 import { Home } from '../templates/Home';
 import Register from '../templates/auth/register';
-import Login from '../templates/auth/Login';
+import Login from '../templates/auth/login';
 import LandingNavBar from '../templates/partials/LandingNav';
 import Footer from '../templates/partials/Footer';
 import About from '../templates/info/About';

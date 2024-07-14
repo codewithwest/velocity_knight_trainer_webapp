@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 // import logo from "../../assets/0.jpg";
 import "../../styles/partials/Footer.css";
 import "../../App.css";
-import { main_logo } from "../../functions/imageProvider";
+import { main_logo } from "../../providers/image_provider";
 
 export default function Footer() {
   var arrow = <i class="bi bi-caret-right-fill"></i>;

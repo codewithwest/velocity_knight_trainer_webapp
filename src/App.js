@@ -2,7 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 // import { logged_in_icon, logged_out_icon } from './functions/ConstIcons';
 import { Route, Routes, useNavigate } from "react-router-dom"
-import { About, AthleteProfile, CreateSession, Login, Register, SessionLog } from './functions/RoutesProvider';
+import { About, AthleteProfile, CreateSession, Login, Register, SessionLog } from './providers/routes_provider';
 import More from './templates/info/More';
 import './styles/Layout.css'
 import navigationBar from './templates/partials/navigationBar';

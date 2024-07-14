@@ -5,7 +5,7 @@ import {
   main_logo,
   olympics_logo,
   timetronics_logo,
-} from "../../functions/imageProvider";
+} from "../../providers/image_provider";
 
 import { aboutInfoText, aboutCardText } from "../../functions/ConstLists";
 export default function Home() {
