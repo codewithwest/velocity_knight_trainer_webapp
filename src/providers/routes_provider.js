@@ -1,12 +1,12 @@
-import { CreateSession } from '../templates/routes/CreateSession';
-import { AthleteProfile } from '../templates/routes/AthleteProfile';
-import { SessionLog } from '../templates/routes/SessionLog';
-import { Home } from '../templates/Home';
+import { CreateSession } from '../templates/routes/create_session';
+import { AthleteProfile } from '../templates/routes/athlete_profile';
+import { SessionLog } from '../templates/routes/sessions_log';
+import { Home } from '../templates/home';
 import Register from '../templates/auth/register';
 import Login from '../templates/auth/login';
-import LandingNavBar from '../templates/partials/LandingNav';
-import Footer from '../templates/partials/Footer';
-import About from '../templates/info/About';
+import LandingNavBar from '../templates/partials/landing_nav';
+import Footer from '../templates/partials/footer';
+import About from '../templates/info/about';
 
 
 export {

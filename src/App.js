@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react';
 // import { logged_in_icon, logged_out_icon } from './functions/ConstIcons';
 import { Route, Routes, useNavigate } from "react-router-dom"
 import { About, AthleteProfile, CreateSession, Login, Register, SessionLog } from './providers/routes_provider';
-import More from './templates/info/More';
+import More from './templates/info/more';
 import './styles/Layout.css'
-import navigationBar from './templates/partials/navigationBar';
-import Programs from './templates/routes/Programs';
+import navigationBar from './templates/partials/navigation_bar';
+import Programs from './templates/routes/programs';
 
 // const display_handler = new displayHandler()
 function App() {
