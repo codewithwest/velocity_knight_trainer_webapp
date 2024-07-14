@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import "../../styles/Const.css";
+import "../../styles/constants.css";
 import "../../styles/appRoutes/CreateSession.css";
 import { add_icon } from "../../functions/ConstIcons";
 
@@ -85,7 +84,7 @@ export function CreateSession() {
               />
             </div>
             <div className="add_exercise  m-auto-vert">
-              <a className="d-flex" onClick={addExerciseTot}>
+              <a href="/" className="d-flex" onClick={addExerciseTot}>
                 {add_icon}
               </a>
             </div>
@@ -133,7 +132,7 @@ export function CreateSession() {
                       type="text"
                     />
                   </div>
-                  {session_type == "track" ? (
+                  {session_type === "track" ? (
                     <div className="intervals_cont flex-col sb">
                       <h4 className="d-flex w-100 center-content">Interval</h4>
                       <input
@@ -146,7 +145,7 @@ export function CreateSession() {
                   ) : (
                     true
                   )}
-                  {session_type == "track" ? (
+                  {session_type === "track" ? (
                     <div className="intensity_cont flex-col sb">
                       <h4 className="d-flex w-100 center-content">Intensity</h4>
                       <input

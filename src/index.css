@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url(./styles/Const.css);
+@import url(./styles/constants.css);
 
 * {
   margin: 0;
   padding: 0;
 }
+
 :root {
   --primary-bg-color: rgba(240, 249, 241, 0.24);
   --secondary-bg-color: rgba(19, 167, 216, 0.318);
@@ -16,16 +17,19 @@
     -1px -1px 1px rgba(240, 249, 241, 0.573);
   --third-border-color: rgba(240, 249, 241, 0.473);
   --second-border-color: rgba(141, 229, 0, 0.251);
-  --main-bg-color: rgb(31 41 55);
-  --secondary-bg-color: rgb(31 41 55, .3);
-  --main-text-color:rgba(7, 218, 218, 0.915);
+  --main-bg-color: rgb(31, 41, 55);
+  --secondary-bg-color: rgb(31, 41, 55, .3);
+  --main-text-color: rgba(7, 218, 218, 0.915);
   --main-border-color: rgba(7, 218, 218, 0.615);
 
 
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI', */
+  font-family: 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -53,7 +57,7 @@ main {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
-  display: block;   
+  display: block;
   color: var(--main-text-color);
 }
 

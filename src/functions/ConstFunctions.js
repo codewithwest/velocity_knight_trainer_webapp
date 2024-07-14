@@ -23,11 +23,12 @@ class displaySwitch extends displayHandler {
         this.displayGrid(flex_div)
     }
     async displaySuccessMessage(succ_div, form_div, modal_cont) {
+
         this.swapDisplay(succ_div, form_div)
-        setTimeout(() => {
-            this.swapDisplayGrid(form_div, succ_div)
-            this.displayNone(modal_cont)
-        }, 1000)
+        // setTimeout(() => {
+        //     this.swapDisplay(succ_div, form_div)
+        //     // this.displayNone(modal_cont)
+        // }, 1000)
     }
 }
 export {

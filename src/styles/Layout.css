@@ -1,4 +1,4 @@
-@import url("./Const.css");
+@import url("./constants.css");
 @import url("../index.css");
 
 .body {
@@ -14,10 +14,10 @@
     justify-self: center;
     margin: 50vh 50vw;
     color: --text-main-color;
-    animation: text-move 25s infinite;
+    /* animation: text-move 25s infinite; */
 }
 
-@keyframes text-move {
+/* @keyframes text-move {
     0% {
         font-size: 200%;
         transform: rotate(300deg);
@@ -35,7 +35,7 @@
         transform: rotate(300deg);
         -webkit-transform: rotate(300deg);
     }
-}
+} */
 
 .main-header {
     height: 10%;
@@ -43,7 +43,6 @@
     background: --main-bg-color;
     box-shadow: 0px 5px 5px #046d84;
     backdrop-filter: blur(10px);
-    z-index: 11;
 
 }
 
@@ -57,7 +56,6 @@
 
 .nav-bar {
     position: relative;
-    z-index: 10;
     width: 28%;
     min-width: 250px;
     height: 100%;
@@ -175,7 +173,7 @@
         animation: text-move 25s infinite;
     }
 
-    @keyframes text-move {
+    /* @keyframes text-move {
         0% {
             font-size: 100%;
             transform: rotate(200deg);
@@ -193,7 +191,7 @@
             transform: rotate(300deg);
             -webkit-transform: rotate(300deg);
         }
-    }
+    } */
 
     .content {
         height: 80%;

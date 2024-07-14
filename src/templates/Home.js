@@ -1,5 +1,5 @@
 import "../styles/Home.css";
-import "../styles/Const.css";
+import "../styles/constants.css";
 import "../styles/vkTrainerAnim.css";
 
 import img from "../assets/0.jpg";

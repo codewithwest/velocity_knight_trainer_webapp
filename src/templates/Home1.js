@@ -1,5 +1,5 @@
 import "../styles/Home.css";
-import "../styles/Const.css";
+import "../styles/constants.css";
 import one from "../assets/0.jpg";
 import { useState, useEffect } from "react";
 import { initial_registration_form_data } from "../dataSchema/schemas.js";
@@ -20,8 +20,8 @@ export default function Home1() {
     let _inputs = document.querySelectorAll(`.${error_selector}`);
     _inputs.forEach(
       (el) =>
-        (el.style.boxShadow =
-          "1.5px 1.5px 1px rgba(220,22,11,.6),-1.5px -1.5px 1px rgba(220,22,11,.6)")
+      (el.style.boxShadow =
+        "1.5px 1.5px 1px rgba(220,22,11,.6),-1.5px -1.5px 1px rgba(220,22,11,.6)")
     );
   }
   // let  PostRegData= () =>

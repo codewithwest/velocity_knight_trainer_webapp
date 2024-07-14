@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom"
-// import '../../styles/Home.css';
-import '../../styles/Const.css';
+import '../../styles/constants.css';
 export function SessionLog() {
     return (
         <>

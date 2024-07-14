@@ -1,4 +1,4 @@
-import '../styles/Const.css';
+import '../styles/constants.css';
 import '../styles/Forms.css';
 
 import { useState, useEffect } from 'react';

@@ -1,13 +1,12 @@
 import "../../styles/info/About.css";
-import "../../styles/Const.css";
-import {} from "../../functions/ConstVars";
-import { Link } from "react-router-dom";
+import "../../styles/constants.css";
 import {
   iaaf_logo,
   main_logo,
   olympics_logo,
   timetronics_logo,
 } from "../../functions/imageProvider";
+
 import { aboutInfoText, aboutCardText } from "../../functions/ConstLists";
 export default function Home() {
   return (
@@ -91,16 +90,16 @@ export default function Home() {
       </div>
     );
   }
-  function arrowPictures(params) {
-    return (
-      <div className="arrow-cont d-flex">
-        <div className="arrow-right"></div>
-        <div className="arrow-down"></div>
-        <div className="arrow-left"></div>
-        <div className="arrow-up"></div>
-      </div>
-    );
-  }
+  // function arrowPictures(params) {
+  //   return (
+  //     <div className="arrow-cont d-flex">
+  //       <div className="arrow-right"></div>
+  //       <div className="arrow-down"></div>
+  //       <div className="arrow-left"></div>
+  //       <div className="arrow-up"></div>
+  //     </div>
+  //   );
+  // }
   function ourPartners(name, image) {
     return (
       <div className="partner-cont flex-col">

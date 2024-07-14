@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/0.jpg";
+// import logo from "../../assets/0.jpg";
 import "../../styles/partials/Footer.css";
 import "../../App.css";
-import { useState } from "react";
 import { main_logo } from "../../functions/imageProvider";
 
 export default function Footer() {
@@ -70,31 +69,31 @@ export default function Footer() {
             <a href="https://www.linkedin.com/in/codewithwest">
               <i className="bi bi-linkedin"></i>
             </a>
-            <a href="">
+            <a href="/">
               <i className="bi bi-whatsapp"></i>
             </a>
-            <a href="">
+            <a href="/">
               <i className="bi bi-twitter"></i>
             </a>
-            <a href="">
+            <a href="/">
               <i className="bi bi-slack"></i>
             </a>
-            <a href="">
+            <a href="/">
               <i className="bi bi-medium"></i>
             </a>
-            <a href="">
+            <a href="/">
               <i className="bi bi-discord"></i>
             </a>
           </div>
           <h6>Get Platform Apps</h6>
           <div className="center-content">
-            <Link to={""}>
+            <Link to={"/"}>
               <i className="bi bi-android"></i>
             </Link>
-            <Link to={""}>
+            <Link to={"/"}>
               <i className="bi bi-apple"></i>
             </Link>
-            <Link to={""}>
+            <Link to={"/"}>
               <i className="bi bi-windows"></i>
             </Link>
           </div>

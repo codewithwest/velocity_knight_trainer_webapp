@@ -8,7 +8,6 @@
     --second-border-color: rgba(141, 229, 0, 0.251);
 }
 
-
 .h-100 {
     height: 100%;
 }
@@ -149,7 +148,8 @@
 }
 
 .bg-success {
-    background: rgba(5, 215, 12, .3);
+    display: none;
+    background: rgba(46, 234, 165, 0.139);
     color: #fff;
 }
 
