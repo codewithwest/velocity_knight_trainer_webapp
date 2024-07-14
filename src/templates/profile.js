@@ -4,7 +4,7 @@ import '../styles/Forms.css';
 import { useState, useEffect } from 'react';
 import { initial_login_form_data } from '../dataSchema/schemas.js';
 import { displayHandler, displaySwitch } from '../functions/ConstFunctions.js';
-import { resolve } from '../functions/ConstVars';
+import { resolve } from '../functions/ConstVars.js';
 
 
 export default function Profile(props) {
