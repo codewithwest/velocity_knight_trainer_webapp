@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { ApolloProvider } from '@apollo/client';
-import client from './providers/apolloClient';
+import client from './providers/apollo_client';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
