@@ -8,7 +8,7 @@
     left: 0;
     background: rgb(31, 41, 55, .67);
     min-height: 80vh;
-    height: auto;
+    height: 100vh;
     overflow: hidden;
 }
 
