@@ -32,16 +32,15 @@
     }
 
     .reg-form-cont>form>div>label {
-        flex: 1 0 70px;
-    }
-
-    .reg-form-cont>form>div>label {
         padding: 10px;
         flex: 1 0 70px;
+        display: flex;
+        alight-items: center;
+        font-size: small;
     }
 
     .reg-form-cont>form>div>input {
-        padding: 25px 5px;
+        padding: 15px;
         margin: auto;
     }
 }
