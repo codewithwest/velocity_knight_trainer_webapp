@@ -1,0 +1,46 @@
+.reg-form-cont>form {
+    transition: all 1s;
+    padding: 10px 30px;
+}
+
+.reg-form-cont>form>h2 {
+    padding: 2px;
+}
+
+.reg-form-cont>form>div>label {
+    font-size: small;
+    padding: 10px;
+    flex: 1 0 100px;
+}
+
+
+.reg-form-cont>form>div>input {
+    margin: auto;
+}
+
+@media screen and (max-width:600px) {
+    .reg-form-cont {
+        margin: 50px;
+    }
+
+    .reg-form-cont>form {
+        padding: 10px 10px;
+    }
+
+    .reg-form-cont>form>h2 {
+        padding: 22px;
+    }
+
+    .reg-form-cont>form>div>label {
+        padding: 10px;
+        flex: 1 0 70px;
+        display: flex;
+        alight-items: center;
+        font-size: small;
+    }
+
+    .reg-form-cont>form>div>input {
+        padding: 15px;
+        margin: auto;
+    }
+}
