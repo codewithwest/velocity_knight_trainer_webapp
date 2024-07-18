@@ -6,16 +6,16 @@
     top: 0;
     right: 0;
     left: 0;
-    background: rgb(31, 41, 55, .67);
+    background: rgba(var(--main-bg-color), .45);
     min-height: 80vh;
     height: 100vh;
     overflow: hidden;
 }
 
 form {
-    padding: 20px;
-    box-shadow: .5px .5px var(--main-text-color),
-        -.5px -.5px var(--main-text-color);
+    padding: 15px;
+    box-shadow: .5px .5px 4px rgba(var(--main-text-color)),
+        -.5px -.5px 4px rgba(var(--main-text-color));
     border-radius: 15px;
     gap: 15px;
     transform: perspective(10px) translateZ(10px) skew(10px, 10px) scale3d(.75);
@@ -34,21 +34,21 @@ form>div>input {
     border-radius: 20px;
     padding: 20px;
     flex: 1 0 200px;
-    box-shadow: .5px .5px var(--main-text-color);
-    outline: var(--main-text-color);
+    box-shadow: .5px .5px rgba(var(--main-text-color));
+    outline: rgba(var(--main-text-color));
     background: none;
 }
 
 form>div>input:focus {
-    box-shadow: -.5px -.5px var(--main-text-color),
-        .5px .5px var(--main-text-color);
+    box-shadow: -.5px -.5px rgba(var(--main-text-color)),
+        .5px .5px rgba(var(--main-text-color));
 }
 
 form>button {
     border-radius: 20px;
     padding: 5px 20px;
-    background: var(--main-text-color);
-    color: var(--main-bg-color);
+    background: rgba(var(--main-text-color), .95);
+    color: rgba(var(--main-bg-color));
     transition: all .4s;
 }
 
@@ -59,7 +59,7 @@ form>button>i {
 
 form>button:hover {
     transition: all .7s;
-    filter: drop-shadow(1px 1px 4px var(--main-text-color));
+    filter: drop-shadow(1px 1px 4px rgba(var(--main-text-color)));
 }
 
 form>.form-collapse>i {

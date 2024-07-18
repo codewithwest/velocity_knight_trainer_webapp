@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "../../src/styles/components/programCard.css"
+import "../../styles/components/program_cards.css"
 
 export default function ProgramCards(program) {
     return (

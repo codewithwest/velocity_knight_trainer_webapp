@@ -1,22 +1,17 @@
 import { useMemo } from "react";
-import ProgramCards from "../../components/programCards";
-import gqlDefined from '../../dataSchema/graphql/main';
+import ProgramCards from "../components/program_cards";
+import gqlDefined from '../../providers/data_schema/graphql/main';
 import { useQuery } from "@apollo/client";
-// import { redirect } from "react-router-dom";
 const { getPrograms } = gqlDefined
 
 export default function Programs({ is_logged_in }) {
-    // useEffect(() => {
-
-    //     // if (!is_logged_in) redirect('/app/auth/user/login')
-    // })
 
     const { data, loading } = useQuery(getPrograms, {
         variables: { key: 1 },
         fetchPolicy: "cache-and-network",
         nextFetchPolicy: "cache-first",
-
     });
+
     let all_programs = useMemo(() =>
         loading ? [" "] : data?.getPrograms
         , [loading, data]);
@@ -24,7 +19,7 @@ export default function Programs({ is_logged_in }) {
     return (
         all_programs?.map((program, index) =>
         (
-            <div className="index" key={index}>
+            <div key={index}>
                 {ProgramCards(program)}
             </div>
         ))

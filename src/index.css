@@ -10,19 +10,10 @@
 }
 
 :root {
-  --primary-bg-color: rgba(240, 249, 241, 0.24);
-  --secondary-bg-color: rgba(19, 167, 216, 0.318);
-  --additional-bg-color: rgba(141, 229, 0, 0.251);
-  --input-box-shadow: 1px 1px 1px rgba(240, 249, 241, 0.573),
-    -1px -1px 1px rgba(240, 249, 241, 0.573);
-  --third-border-color: rgba(240, 249, 241, 0.473);
-  --second-border-color: rgba(141, 229, 0, 0.251);
-  --main-bg-color: rgb(31, 41, 55);
-  --secondary-bg-color: rgb(31, 41, 55, .3);
-  --main-text-color: rgba(7, 218, 218, 0.915);
-  --main-border-color: rgba(7, 218, 218, 0.615);
-
-
+  --main-bg-color: 22, 25, 30;
+  --secondary-bg-color: 25, 33, 45;
+  --main-text-color: 7, 218, 218;
+  --main-border-color: 7, 218, 218;
 }
 
 body {
@@ -34,7 +25,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: red;
 }
 
 
@@ -53,12 +43,12 @@ code {
 }
 
 main {
-  background: var(--main-bg-color);
+  background: rgba(var(--main-bg-color));
   overflow: hidden;
   height: 100vh;
   width: 100vw;
   display: block;
-  color: var(--main-text-color);
+  color: rgba(var(--main-text-color));
 }
 
 @layer utilities {
