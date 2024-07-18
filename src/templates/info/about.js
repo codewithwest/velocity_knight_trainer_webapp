@@ -7,7 +7,7 @@ import {
   timetronics_logo,
 } from "../../providers/image_provider";
 
-import { aboutInfoText, aboutCardText } from "../../functions/ConstLists";
+import { aboutInfoText, aboutCardText } from "../../providers/ConstLists";
 export default function Home() {
   return (
     <div className="home-cont d-flex wrap">

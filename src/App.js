@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Route, Routes, useNavigate } from "react-router-dom"
 import { About, AthleteProfile, CreateSession, Login, Register, SessionLog } from './providers/routes_provider';
 import More from './templates/info/more';
-import './styles/Layout.css'
+import './styles/main.css'
 import navigationBar from './templates/partials/navigation_bar';
 import Programs from './templates/routes/programs';
 
@@ -24,14 +24,15 @@ function App() {
   // const [login_data, setLoginData] = useState()
 
   useEffect(() => {
-    if (is_logged_in === true) {
-      // set_is_logged_in(true)
 
+    if (session_token) {
+      set_is_logged_in(true)
+      navigate('/')
     } else {
       set_is_logged_in(false)
       navigate('/login')
     }
-  }, [is_logged_in])
+  }, [is_logged_in, session_token])
 
   // const getLoginState = () => {
   //   const headers = {
@@ -86,8 +87,7 @@ function App() {
         <div className="content d-flex w-100">
           <Routes>
             <Route path="/" element={<Programs />} on_logged_in={update_login_state}
-              value={is_logged_in
-                ? "login_data" : ""} />
+              value={is_logged_in ? "login_data" : ""} />
             <Route path="/app/about" element={<About />} />
             <Route path="/app/more" element={<More />} />
             <Route path="/new/session" element={<CreateSession />} />

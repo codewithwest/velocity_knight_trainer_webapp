@@ -1,6 +1,6 @@
 import "../../styles/info/More.css";
 import "../../styles/constants.css";
-import { moreList } from "../../functions/ConstLists";
+import { moreList } from "../../providers/ConstLists";
 
 function FeaturesList(list, arrow) {
     return (

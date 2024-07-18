@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../../styles/constants.css";
 import "../../styles/appRoutes/CreateSession.css";
-import { add_icon } from "../../functions/const_icons";
+import { add_icon } from "../../providers/const_icons";
 
 export function CreateSession() {
   const [formdata, setFormData] = useState();
