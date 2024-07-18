@@ -1,0 +1,16 @@
+
+export default function loader(){
+return (
+        <div>
+            <div class="services-div d-flex wrap pos-abs top-0 right-0">
+                <div class="d-flex center-content">
+                    <div class='d-flex center-content fw-bold'>
+                        <div class='fill d-flex center-content'>
+                            <div class="bolt"></div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+)
+}
