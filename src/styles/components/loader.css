@@ -1,0 +1,85 @@
+
+
+.services-div{
+    color: red;
+    padding: 30px;
+    gap: 5px;
+}
+.services-div>div{
+    flex: 1;
+    margin-right: auto;
+}
+.services-div>div>div{
+
+    text-align: center;
+    border-radius: 100px;
+    padding:5px;
+    width: 150px;
+    height: 150px;
+    animation: services 2.5s linear infinite;
+    background: linear-gradient(var(--rotate), #0e0d0d, #121313c2, rgb(5, 202, 216));
+   
+}
+.services-div>div>div>div {
+    background: rgb(25, 25, 26);
+    border-radius: inherit;
+}
+@keyframes services {
+    0% {
+        --rotate: 0deg;
+        }
+    100% {
+    --rotate: 360deg;
+    }
+}
+
+
+/* * { background-color: black; margin: 20px; } */
+
+.bolt {
+  border: 4px solid rgba(0,0,0,0);
+  border-bottom: 22px solid #069be0;
+  transform: rotateZ(-160deg);
+  padding: 2px;
+  width: 0;
+  height: 0;
+  margin: 0;
+  overflow: visible;
+  border-top: 0 solid;
+  border-radius: 0;
+  transform-origin: 50% 50% 0;
+  animation: lightning 2.5s linear infinite;
+
+}
+
+.bolt:after {
+  content: "";
+  top: -9px;
+  left: -8px;
+  border: 5px solid rgba(0,0,0,0);
+  border-bottom: 25px solid #069be0;
+  transform: rotateZ(4deg);
+  padding: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  margin: 0;
+  overflow: visible;
+  border-top: 0 solid;
+  border-radius: 0;
+  transform-origin: 50% 50% 0;
+  animation: lightning 2.5s linear infinite;
+}
+
+@keyframes lightning {
+    0% {
+            padding: 1px;
+        }
+    50% {
+            padding: 3px;
+        }
+    100% {
+      
+            padding: 1.2px;
+    }
+}
