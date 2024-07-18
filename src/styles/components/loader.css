@@ -1,30 +1,30 @@
 
 
-.services-div{
+.loader-div{
     color: red;
     padding: 30px;
     gap: 5px;
 }
-.services-div>div{
+.loader-div>div{
     flex: 1;
     margin-right: auto;
 }
-.services-div>div>div{
+.loader-div>div>div{
 
     text-align: center;
     border-radius: 100px;
     padding:5px;
     width: 150px;
     height: 150px;
-    animation: services 2.5s linear infinite;
+    animation: loader 2.5s linear infinite;
     background: linear-gradient(var(--rotate), #0e0d0d, #121313c2, rgb(5, 202, 216));
    
 }
-.services-div>div>div>div {
+.loader-div>div>div>div {
     background: rgb(25, 25, 26);
     border-radius: inherit;
 }
-@keyframes services {
+@keyframes loader {
     0% {
         --rotate: 0deg;
         }
@@ -48,7 +48,7 @@
   border-top: 0 solid;
   border-radius: 0;
   transform-origin: 50% 50% 0;
-  animation: lightning 2.5s linear infinite;
+/*   animation: lightning 2.5s linear infinite; */
 
 }
 
@@ -68,7 +68,7 @@
   border-top: 0 solid;
   border-radius: 0;
   transform-origin: 50% 50% 0;
-  animation: lightning 2.5s linear infinite;
+/*   animation: lightning 2.5s linear infinite; */
 }
 
 @keyframes lightning {
