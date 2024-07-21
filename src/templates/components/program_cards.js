@@ -1,25 +1,28 @@
 import { Link } from "react-router-dom"
 import "../../styles/components/program_cards.css"
+import { OpenInBrowserOutlined } from "@mui/icons-material"
 
 export default function ProgramCards(program) {
     return (
-        <Link key={1} href="/" className="block m-2 max-w-sm p-6  
-                  border-gray-900 rounded-lg shadow hover:bg-gray-900
-                  dark:bg-gray-800 dark:border-gray-800 dark:hover:bg-black-200 no-underline">
-
-            <h2 key={program.id} className="mb-2 text-2xl font-bold tracking-tight 
-            text-gray-900 dark:text-gray-200 text-center capitalize">
-                {program.type ?? "standard"}</h2>
+        <div className="program-card w-100 rounded-md
+                   shadow-sm  
+                    no-underline p-2">
+            <div className="d-flex w-100">
+                <h4 key={program.id} className="program-header d-flex center-content w-100 p-1 overflow-hidden">
+                    {program.type ?? "standard"}</h4>
+                <Link className="d-flex center-content p-2 mb-auto" to={"/programs/id/" + program.id}>
+                    <OpenInBrowserOutlined></OpenInBrowserOutlined>
+                </Link>
+            </div>
             <div className="flex flex-col">
-
                 <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex"></div>
-                <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr className="">
-                                <th key={1} scope="col" className="px-6 py-3 text-lg capitalize">Exercise</th>
-                                <th key={2} scope="col" className="px-6 py-3 text-lg capitalize">Reps</th>
-                                <th key={3} scope="col" className="px-6 py-3 text-l capitalize">Sets</th>
+                <div className="relative overflow-hidden shadow-md sm:rounded-lg">
+                    <table className="w-full text-sm text-left rtl:text-right ">
+                        <thead className="text-xs uppercase bg-gray-50 dark:bg-gray-600">
+                            <tr className="sm:rounded-md">
+                                <th scope="col" className="px-3 py-3 text-md capitalize">Exercise</th>
+                                <th scope="col" className="px-3 py-3 text-md capitalize">Reps</th>
+                                <th scope="col" className="px-3 py-3 text-md capitalize">Sets</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,7 +30,7 @@ export default function ProgramCards(program) {
                             {program?.data?.map((exercise, idx) => (
                                 <tr key={idx} className="">
                                     {exercise?.split(",")?.map((ext, ix) => (
-                                        <td key={ix} className="px-6 py-4 text-base">{ext}</td>
+                                        <td key={ix} className="px-3 py-2 text-md">{ext}</td>
                                     ))}
                                 </tr>
                             ))}
@@ -36,6 +39,6 @@ export default function ProgramCards(program) {
                     </table>
                 </div>
             </div>
-        </Link>
+        </div>
     )
 }

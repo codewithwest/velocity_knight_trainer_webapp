@@ -3,7 +3,7 @@ import "../../styles/constants.css";
 import { useEffect, useMemo, useState } from "react";
 import { initial_registration_form_data } from "../../providers/data_schema/schemas.js";
 import { Link, useNavigate } from "react-router-dom";
-import user_queries_mutations from "../../providers/data_schema/graphql/user.js";
+import { register_user } from "../../providers/data_schema/graphql/user.js";
 import { useMutation } from "@apollo/client";
 import Loader from "../components/loader.js";
 
@@ -25,7 +25,7 @@ export default function Register({ auth_stat }) {
     );
   }
 
-  const [register, { loading, data, error }] = useMutation(user_queries_mutations.register_user, {
+  const [register, { loading, data, error }] = useMutation(register_user, {
     variables: { input: formdata }
   })
 

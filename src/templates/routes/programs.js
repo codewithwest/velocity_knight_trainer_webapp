@@ -1,12 +1,12 @@
 import { useMemo } from "react";
 import ProgramCards from "../components/program_cards";
-import gqlDefined from '../../providers/data_schema/graphql/main';
+import { get_programs } from '../../providers/data_schema/graphql/main';
 import { useQuery } from "@apollo/client";
-const { getPrograms } = gqlDefined
+import "../../styles/components/program_cards.css"
 
 export default function Programs({ is_logged_in }) {
 
-    const { data, loading } = useQuery(getPrograms, {
+    const { data, loading } = useQuery(get_programs, {
         variables: { key: 1 },
         fetchPolicy: "cache-and-network",
         nextFetchPolicy: "cache-first",
@@ -19,9 +19,11 @@ export default function Programs({ is_logged_in }) {
     return (
         all_programs?.map((program, index) =>
         (
-            <div key={index}>
-                {ProgramCards(program)}
-            </div>
+            <div className="programs-cont rounded-md">
+                <div key={program?.id} className="program-card-cont">
+                    {ProgramCards(program)}
+                </div>
+            </div >
         ))
     )
 }
