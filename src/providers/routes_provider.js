@@ -1,5 +1,5 @@
 import { CreateSession } from '../templates/routes/create_session';
-import { AthleteProfile } from '../templates/routes/athlete_profile';
+import { AthleteProfile } from '../templates/routes/profile';
 import { SessionLog } from '../templates/routes/sessions_log';
 import { Home } from '../templates/home';
 import Register from '../templates/auth/register';

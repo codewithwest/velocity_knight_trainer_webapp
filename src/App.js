@@ -1,14 +1,12 @@
 import './App.css';
-import { useState, useEffect } from 'react';
-// import { logged_in_icon, logged_out_icon } from './functions/ConstIcons';
+import { useState, useEffect, Suspense } from 'react';
 import { Route, Routes, useNavigate } from "react-router-dom"
-import { About, AthleteProfile, CreateSession, Login, Register, SessionLog } from './providers/routes_provider';
+import { About, AthleteProfile, CreateSession, Login, Register } from './providers/routes_provider';
 import More from './templates/info/more';
 import './styles/main.css'
 import navigationBar from './templates/partials/navigation_bar';
 import Programs from './templates/routes/programs';
 
-// const display_handler = new displayHandler()
 function App() {
   const navigate = useNavigate();
 
@@ -84,18 +82,21 @@ function App() {
       <div className='body d-flex h-100 w-100'>
         {navigationBar()}
         <div className="content d-flex w-100 h-100">
-          <Routes>
-            <Route path="/" element={<Programs />} on_logged_in={update_login_state}
-              value={is_logged_in ? "login_data" : ""} />
-            <Route path="/app/about" element={<About />} />
-            <Route path="/settings" element={<More />} />
-            <Route path="/program/view" element={<CreateSession />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} onChange={set_is_logged_in}
-              value={is_logged_in
-                ? "login_data" : ""} />
-            <Route path="/profile" element={<AthleteProfile />} />
-          </Routes>
+          <Suspense fallback={<div className="container">Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Programs />} on_logged_in={update_login_state}
+                value={is_logged_in ? "login_data" : ""} />
+              <Route path="/app/about" element={<About />} />
+              <Route path="/settings" element={<More />} />
+              <Route path="/programs/:id" element={<CreateSession />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} onChange={set_is_logged_in}
+                value={is_logged_in
+                  ? "login_data" : ""} />
+              <Route path="/profile" element={<AthleteProfile />} />
+              {/* <Route path="*" element={<NoMatch />} /> */}
+            </Routes>
+          </Suspense>
         </div>
       </div>
     </main>

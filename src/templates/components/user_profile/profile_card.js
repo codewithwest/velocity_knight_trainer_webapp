@@ -4,21 +4,24 @@ import { count_programs } from "../../../providers/data_schema/graphql/main";
 import { useQuery } from "@apollo/client";
 import { useMemo } from "react";
 import "../../../styles/components/profile_cards.css"
+
 export default function ProfileCard(user_data) {
     const { data, loading } = useQuery(count_programs, {
         variables: { input: { key: 1 } },
         fetchPolicy: "cache-and-network",
         nextFetchPolicy: "cache-first",
     });
+
     let user_programs_count = useMemo(() =>
         loading ? [" "] : data?.countPrograms
         , [loading, data]);
+
     return (
         <div className="flex flex-col top-0 z-10 profile-card">
             <div className="rounded-2xl p-4 mb-15">
                 <div className="flex-none sm:flex">
                     <div className="relative h-32 w-32 sm:mb-0 mb-3">
-                        <img src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg"
+                        <img src="https://media.istockphoto.com/id/1731418452/photo/fast-hurdles-and-team-of-women-on-track-running-in-race-marathon-or-competition-in-stadium.jpg?s=2048x2048&w=is&k=20&c=z_-VkBP3VbokIxP0WGkWXJUv0W3MP9pjRgsZqCk_RrQ="
                             alt="aji" className=" w-32 h-32 object-cover rounded-2xl" />
                         <Link to={"#"} className="absolute -right-2 bottom-2 -ml-3  text-white p-1 text-xs bg-green-400 
                                         hover:bg-green-500 font-medium tracking-wider rounded-full transition ease-in duration-300">

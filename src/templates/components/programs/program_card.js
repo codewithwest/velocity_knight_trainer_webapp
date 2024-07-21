@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import "../../../styles/components/program_cards.css";
 import { OpenInBrowserOutlined } from "@mui/icons-material"
 
 export default function ProgramCards(program) {
+
     return (
         <div className="program-card w-100 rounded-md
                    shadow-sm  
@@ -10,7 +11,7 @@ export default function ProgramCards(program) {
             <div className="d-flex w-100">
                 <h4 key={program.id} className="program-header d-flex center-content w-100 p-1 overflow-hidden">
                     {program.type ?? "standard"}</h4>
-                <Link className="d-flex center-content p-2 mb-auto" to={"/programs/id/" + program.id}>
+                <Link className="d-flex center-content p-2 mb-auto" to={{ pathname: `/programs/${program.id}`, state: program }}>
                     <OpenInBrowserOutlined></OpenInBrowserOutlined>
                 </Link>
             </div>
@@ -39,6 +40,6 @@ export default function ProgramCards(program) {
                     </table>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }

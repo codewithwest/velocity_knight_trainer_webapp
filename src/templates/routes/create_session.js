@@ -2,8 +2,12 @@ import { useState } from "react";
 import "../../styles/constants.css";
 import "../../styles/appRoutes/CreateSession.css";
 import { add_icon } from "../../providers/const_icons";
+import { useParams } from "react-router-dom";
 
 export function CreateSession() {
+
+  const { id } = useParams();
+
   const [formdata, setFormData] = useState();
   const [exercise_count, addExercise] = useState(1);
   const [session_type, chosenSessionType] = useState(true);

@@ -7,7 +7,7 @@ import "../../styles/components/program_cards.css"
 export default function Programs({ is_logged_in }) {
 
     const { data, loading } = useQuery(get_programs, {
-        variables: { key: 1 },
+        variables: { key: parseInt(localStorage.getItem("id")) },
         fetchPolicy: "cache-and-network",
         nextFetchPolicy: "cache-first",
     });
@@ -19,7 +19,7 @@ export default function Programs({ is_logged_in }) {
     return (
         all_programs?.map((program, index) =>
         (
-            <div className="programs-cont rounded-md">
+            <div key={index} className="programs-cont rounded-md">
                 <div key={program?.id} className="program-card-cont">
                     {ProgramCards(program)}
                 </div>
