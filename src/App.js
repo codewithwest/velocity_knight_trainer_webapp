@@ -19,7 +19,7 @@ function App() {
   //   setState(num);
   // }, [num]);
 
-  let session_token = sessionStorage.getItem('token')
+  let session_token = localStorage.getItem('token')
   const [is_logged_in, set_is_logged_in] = useState(false)
   // const [login_data, setLoginData] = useState()
 
@@ -27,7 +27,6 @@ function App() {
 
     if (session_token) {
       set_is_logged_in(true)
-      navigate('/')
     } else {
       set_is_logged_in(false)
       navigate('/login')
@@ -84,21 +83,18 @@ function App() {
       </div>
       <div className='body d-flex h-100 w-100'>
         {navigationBar()}
-        <div className="content d-flex w-100">
+        <div className="content d-flex w-100 h-100">
           <Routes>
             <Route path="/" element={<Programs />} on_logged_in={update_login_state}
               value={is_logged_in ? "login_data" : ""} />
             <Route path="/app/about" element={<About />} />
-            <Route path="/app/more" element={<More />} />
+            <Route path="/settings" element={<More />} />
             <Route path="/new/session" element={<CreateSession />} />
-            <Route path="/sessions/collection" element={<SessionLog />} />
-            <Route path="/athlete/profile" element={<AthleteProfile />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} onChange={set_is_logged_in}
               value={is_logged_in
                 ? "login_data" : ""} />
-            <Route path="/app/auth/user/profile" element={<AthleteProfile />} />
-            <Route path="/user/programs" element={<AthleteProfile />} />
+            <Route path="/profile" element={<AthleteProfile />} />
           </Routes>
         </div>
       </div>

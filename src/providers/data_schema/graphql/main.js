@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const GET_PROGRAMS = gql`
+const get_programs = gql`
   query  getPrograms($key: Int!) {
     getPrograms(keys: $key) {
       id
@@ -11,6 +11,14 @@ const GET_PROGRAMS = gql`
       created_at
       updated_at
       private
+    }
+  }
+`;
+
+const count_programs = gql`
+  query  countPrograms($input: CountProgramsInput!) {
+    countPrograms(input: $input) {
+      count
     }
   }
 `;
@@ -41,7 +49,8 @@ const GET_PROGRAMS = gql`
 //   }
 // `;
 
-const gqlDefined = {
-  getPrograms: GET_PROGRAMS,
-};
-export default gqlDefined;
+export {
+  get_programs,
+  count_programs
+}
+

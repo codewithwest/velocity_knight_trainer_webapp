@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { initial_login_form_data } from "../../providers/data_schema/schemas.js";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import user_queries_mutations from "../../providers/data_schema/graphql/user.js";
+import { login_user } from "../../providers/data_schema/graphql/user.js";
 import Loader from '../../templates/components/loader.js'
 
 export default function Login(props) {
@@ -25,7 +25,7 @@ export default function Login(props) {
     );
   }
 
-  const [register, { loading, data, error }] = useMutation(user_queries_mutations.login_user, {
+  const [register, { loading, data, error }] = useMutation(login_user, {
     variables: { input: formdata }
   })
 
@@ -45,7 +45,7 @@ export default function Login(props) {
     if (login_response?.id) {
       setUserData(login_response)
       console.error(login_response?.message)
-      sessionStorage.setItem("token", login_response?.token);
+      localStorage.setItem("token", login_response?.token);
       setTimeout(() => navigate('/'), 5)
     }
   }, [login_response, user_data])

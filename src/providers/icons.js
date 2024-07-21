@@ -2,10 +2,17 @@ import FlashOnIcon from '@mui/icons-material/FlashOn';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import SettingsIcon from '@mui/icons-material/Settings';
-
+import FilterCenterFocusIcon from '@mui/icons-material/FilterCenterFocus';
+import EditIcon from '@mui/icons-material/Edit';
+import EditOffIcon from '@mui/icons-material/EditOff';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 export {
     FlashOnIcon,
     AccountCircleIcon,
     AutoGraphIcon,
-    SettingsIcon
+    SettingsIcon,
+    FilterCenterFocusIcon,
+    EditIcon,
+    EditOffIcon,
+    OpenInNewIcon
 }
