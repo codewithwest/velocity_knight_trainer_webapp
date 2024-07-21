@@ -89,7 +89,7 @@ function App() {
               value={is_logged_in ? "login_data" : ""} />
             <Route path="/app/about" element={<About />} />
             <Route path="/settings" element={<More />} />
-            <Route path="/new/session" element={<CreateSession />} />
+            <Route path="/program/view" element={<CreateSession />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} onChange={set_is_logged_in}
               value={is_logged_in

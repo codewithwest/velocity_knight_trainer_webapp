@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "../../styles/components/program_cards.css"
+import "../../../styles/components/program_cards.css";
 import { OpenInBrowserOutlined } from "@mui/icons-material"
 
 export default function ProgramCards(program) {
