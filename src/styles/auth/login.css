@@ -12,7 +12,8 @@
     overflow: hidden;
 }
 
-form {
+.login-form-cont>form,
+.reg-form-cont>form {
     padding: 15px;
     box-shadow: .5px .5px 4px rgba(var(--main-text-color)),
         -.5px -.5px 4px rgba(var(--main-text-color));

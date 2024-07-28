@@ -1,0 +1,138 @@
+.form-cont {
+    box-shadow: .5px .5px 4px rgba(var(--main-text-color)),
+        -.5px -.5px 4px rgba(var(--main-text-color));
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.form-cont>form {
+    padding: 0;
+}
+
+.input-cont {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.input-cont>.input-area {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: .5px .5px 4px rgba(var(--main-text-color), .4),
+        -.5px -.5px 4px rgba(var(--main-text-color));
+    background: inherit;
+    color: inherit;
+    flex: 1 0 50px;
+}
+
+
+.input-cont>.input-area[type="text"] {
+    flex: 1 0 50px;
+}
+
+.input-cont>.input-area:focus {
+    outline: none;
+}
+
+.input-cont>label {
+    position: absolute;
+    left: 16px;
+    top: 22px;
+    padding: 0 3px;
+    text-transform: capitalize;
+    background: inherit;
+    transition: all 0.7s ease-in;
+    pointer-events: none;
+}
+
+.input-cont>.input-area:focus~label {
+    top: -1px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.input-numbers[type="number"] {
+    max-width: 50px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* .hide-arrow[type="number"]::-webkit-inner-spin-button,
+.hide-arrow[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+} */
+
+.input-cont>.input-area:not(:placeholder-shown)~label {
+    top: -1px;
+}
+
+.group-inputs {
+    display: inline-flex;
+    grid-template: 60px / auto auto auto auto;
+    background: green;
+    padding: 2px;
+    width: max-content;
+}
+
+.input-cont>.input-area:not(:placeholder-shown) {
+    border-color: hsl(0, 76%, 50%);
+}
+
+@media screen and (max-width:600px) {
+
+    .form-cont {
+        margin: 2px;
+        border-radius: 5px;
+        font-size: small;
+    }
+
+    .input-cont {
+        margin-top: 3px;
+        padding: 5px;
+    }
+
+    .input-cont>.input-area {
+        padding: 7px 0px;
+        text-indent: 3px;
+        border-radius: 4px;
+    }
+
+    .input-cont>label {
+        left: 7px;
+        top: 10px;
+        font-size: small;
+
+    }
+
+    .input-numbers[type="number"] {
+        max-width: 40px;
+    }
+
+    .input-area[type="text"] {
+        flex: 1 0 40px;
+    }
+
+    .input-cont>.input-area:focus~label {
+        top: -4px;
+        border-radius: 3px;
+    }
+
+    .input-cont>.input-area:not(:placeholder-shown)~label {
+        top: -4px;
+    }
+
+}

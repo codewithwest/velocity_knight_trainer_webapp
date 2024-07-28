@@ -1,21 +1,34 @@
-version: '3.7'
+# version: '3.7'
 services:
-  mongodb_container:
-    image: mongo:latest
-    restart: always
-
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: root
-
+  # Node Version 22.5.1 enviroment
+  reactdev251:
+    container_name: react_dev_251
+    stdin_open: true
+    tty: true
+    build:
+      context: .
+      dockerfile: Dockerfile.reactdev251
     ports:
-      - 27017:27017
+      - 3000:3000
+    develop:
+      watch:
+        - path: ./public
+          action: sync
+          target: /west/github/velocity_knight_trainer_webapp
+          ignore:
+            - node_modules/
+        # - action: rebuild
+        #   path: package.json
+    restart: always
     volumes:
-      - mongodb_data_container:/data/db
-
-volumes:
-  mongodb_data_container:
+      - .:/west/github/velocity_knight_trainer_webapp:delegated
+    # - .ssh/:/root/.ssh:rw 
+    # hostname: 'reactdev251'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
 networks:
   default:
-    name: home-network
+    name: node_dev
     external: true
+
+
