@@ -28,7 +28,6 @@
     flex: 1 0 50px;
 }
 
-
 .input-cont>.input-area:focus {
     outline: none;
 }
@@ -67,12 +66,6 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-/* .hide-arrow[type="number"]::-webkit-inner-spin-button,
-.hide-arrow[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-} */
-
 .input-cont>.input-area:not(:placeholder-shown)~label {
     top: -1px;
 }
@@ -83,9 +76,6 @@ input[type=number] {
     padding: 2px;
 }
 
-
-
-
 .add_exercise>button {
     display: flex;
     align-self: center;
@@ -93,7 +83,6 @@ input[type=number] {
     height: 40px;
     font-size: small;
     padding: 5px;
-
 }
 
 @media screen and (max-width:600px) {
@@ -143,5 +132,4 @@ input[type=number] {
     .input-cont>.input-area:not(:placeholder-shown)~label {
         top: -4px;
     }
-
 }

@@ -27,7 +27,7 @@ function App() {
       set_is_logged_in(true)
     } else {
       set_is_logged_in(false)
-      // navigate('/login')
+      navigate('/login')
     }
   }, [is_logged_in, session_token])
 
