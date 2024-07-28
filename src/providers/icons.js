@@ -8,7 +8,7 @@ import EditOffIcon from '@mui/icons-material/EditOff';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-
+import AddBoxOutlined from "@mui/icons-material/AddBoxOutlined";
 export {
     FlashOnIcon,
     AccountCircleIcon,
@@ -20,4 +20,5 @@ export {
     OpenInNewIcon,
     PersonAddAlt1Icon,
     TrendingUpIcon,
+    AddBoxOutlined
 }

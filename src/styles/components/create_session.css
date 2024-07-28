@@ -13,12 +13,12 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 10px;
-    padding: 10px;
+    padding: 5px;
     position: relative;
 }
 
 .input-cont>.input-area {
-    padding: 10px;
+    padding: 15px 10px;
     border-radius: 10px;
     border: none;
     box-shadow: .5px .5px 4px rgba(var(--main-text-color), .4),
@@ -29,19 +29,16 @@
 }
 
 
-.input-cont>.input-area[type="text"] {
-    flex: 1 0 50px;
-}
-
 .input-cont>.input-area:focus {
     outline: none;
 }
 
 .input-cont>label {
     position: absolute;
-    left: 16px;
-    top: 22px;
-    padding: 0 3px;
+    left: 10px;
+    top: 18px;
+    background: red;
+    padding: 0 4px;
     text-transform: capitalize;
     background: inherit;
     transition: all 0.7s ease-in;
@@ -83,13 +80,20 @@ input[type=number] {
 .group-inputs {
     display: inline-flex;
     grid-template: 60px / auto auto auto auto;
-    background: green;
     padding: 2px;
-    width: max-content;
 }
 
-.input-cont>.input-area:not(:placeholder-shown) {
-    border-color: hsl(0, 76%, 50%);
+
+
+
+.add_exercise>button {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    height: 40px;
+    font-size: small;
+    padding: 5px;
+
 }
 
 @media screen and (max-width:600px) {
@@ -102,18 +106,19 @@ input[type=number] {
 
     .input-cont {
         margin-top: 3px;
-        padding: 5px;
+        padding: 6px 3.5px;
     }
 
     .input-cont>.input-area {
-        padding: 7px 0px;
+        padding: 13px 7px;
         text-indent: 3px;
         border-radius: 4px;
+
     }
 
     .input-cont>label {
         left: 7px;
-        top: 10px;
+        top: 12px;
         font-size: small;
 
     }
@@ -124,6 +129,10 @@ input[type=number] {
 
     .input-area[type="text"] {
         flex: 1 0 40px;
+    }
+
+    #exercise {
+        width: 100%;
     }
 
     .input-cont>.input-area:focus~label {

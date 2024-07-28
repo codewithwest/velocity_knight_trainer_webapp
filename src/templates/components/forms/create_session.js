@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "../../../styles/constants.css";
 import "../../../styles/components/create_session.css";
-import { add_icon } from "../../../providers/const_icons";
 import { useParams } from "react-router-dom";
+import AddBoxOutlined from "@mui/icons-material/AddBoxOutlined";
 
 export function CreateSession() {
 
@@ -17,6 +17,7 @@ export function CreateSession() {
   };
 
   const addExerciseTot = (e) => {
+    e.preventDefault()
     addExercise(exercise_count + 1);
   };
   const chosenSession = (e) => {
@@ -42,7 +43,7 @@ export function CreateSession() {
     sets: "",
     reps: ""
   });
- 
+
   return (
     <div className="create-session w-100 h-100">
       <form action="form-cont">
@@ -50,35 +51,46 @@ export function CreateSession() {
           <input type="text" className="input-area" id="session_name" placeholder="" />
           <label for="session_name">session name</label>
         </div>
-        <div className="group-inputs w-100">
-            <div className="input-cont w-100">
-              <input type="text" className="input-area"
-              id="exercise" placeholder="" />
-              <label for="exercise">exercises</label>
-            </div>
-            <div className="input-cont">
-              <input type="number" className="input-area input-numbers"
+        {Array.from(Array(exercise_count)).map((c, index) => {
+          return (
+            <div className="group-inputs w-100">
+              <div className="input-cont w-100">
+                <input type="text" className="input-area  "
+                  id="exercise" placeholder="" />
+                <label for="exercise">exercises</label>
+              </div>
+              <div className="input-cont">
+                <input type="number" className="input-area  input-numbers"
                   id="reps" placeholder="" />
-              <label for="reps" >Reps</label>
+                <label for="reps" >Reps</label>
+              </div>
+              <div className="input-cont">
+                <input type="number" className="input-area   input-numbers"
+                  id="reps" placeholder="" />
+                <label for="reps">Sets</label>
+              </div>
+              <div className="input-cont">
+                <input type="number" className="input-area   input-numbers"
+                  id="rest" placeholder="" />
+                <label for="rest">Rest</label>
+              </div>
             </div>
-            <div className="input-cont">
-              <input type="number" className="input-area input-numbers"
-                id="reps" placeholder="" />
-              <label for="reps">Sets</label>
-          </div>
-          <div className="input-cont">
-            <input type="number" className="input-area input-numbers"
-              id="rest" placeholder="" />
-            <label for="rest">Rest</label>
-          </div>
-        </div>
+          )
+        })}
+        <div className="add_exercise d-flex">
+          <button classNameName="d-flex w-100"
+            onClick={addExerciseTot}>
+            <AddBoxOutlined>
+            </AddBoxOutlined> Add Exercise
             
-          <div className="input-cont">
-        <textarea className="input-area" id="instructions" placeholder=""></textarea>
-        <label for="instructions">Session instructions</label>
-          </div>
-          </form>
+          </button>
         </div>
+        <div className="input-cont  w-100">
+          <textarea className="input-area" id="instructions" placeholder=""></textarea>
+          <label for="instructions">Session instructions</label>
+        </div>
+      </form>
+    </div>
   );
 }
 
