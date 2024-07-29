@@ -70,8 +70,6 @@ export function CreateSession() {
         </div>
 
       </div>
-
-
         </>
   );
 }

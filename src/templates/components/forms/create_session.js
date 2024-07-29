@@ -53,10 +53,10 @@ export function CreateSession() {
         </div>
         {Array.from(Array(exercise_count)).map((c, index) => {
           return (
-            <div className="group-inputs w-100">
+            <div className="group-inputs w-100" id={c}>
               <div className="input-cont w-100">
-                <input type="text" className="input-area  "
-                  id="exercise" placeholder="" />
+                <input type="text" className="input-area"
+                  id={"exercise"+c} placeholder="" />
                 <label for="exercise">exercises</label>
               </div>
               <div className="input-cont">
