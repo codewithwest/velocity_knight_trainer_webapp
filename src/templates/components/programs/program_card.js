@@ -1,9 +1,8 @@
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import "../../../styles/components/program_cards.css";
 import { OpenInBrowserOutlined } from "@mui/icons-material"
 
 export default function ProgramCards(program) {
-
     return (
         <div className="program-card w-100 rounded-md
                    shadow-sm  
@@ -24,22 +23,24 @@ export default function ProgramCards(program) {
                                 <th scope="col" className="px-3 py-3 text-md capitalize">Exercise</th>
                                 <th scope="col" className="px-3 py-3 text-md capitalize">Reps</th>
                                 <th scope="col" className="px-3 py-3 text-md capitalize">Sets</th>
+                                <th scope="col" className="px-3 py-3 text-md capitalize">Rest</th>
                             </tr>
                         </thead>
                         <tbody>
-
-                            {program?.data?.map((exercise, idx) => (
+                            {console.error(program)}
+                            {program?.exercises?.map((exercise, idx) => (
                                 <tr key={idx} className="">
-                                    {exercise?.split(",")?.map((ext, ix) => (
-                                        <td key={ix} className="px-3 py-2 text-md">{ext}</td>
-                                    ))}
+                                    {console.error(exercise)}
+                                    <td className="px-3 py-2 text-md">{exercise?.exercise ?? ""}</td>
+                                    <td className="px-3 py-2 text-md">{exercise?.sets ?? ""}</td>
+                                    <td className="px-3 py-2 text-md">{exercise?.reps ?? ""}</td>
+                                    <td className="px-3 py-2 text-md">{exercise?.rest ?? ""}</td>
                                 </tr>
                             ))}
-
                         </tbody>
                     </table>
                 </div>
             </div>
-        </div >
+        </div>
     )
 }

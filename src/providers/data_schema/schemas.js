@@ -11,13 +11,13 @@ const initial_login_form_data = {
 }
 
 // create sesison schema
-const create_session_data = {
+const create_program_data = {
     name: "",
     exercises: [],
     instructions: "",
 }
 
-const create_session_exercise = {
+const create_program_exercise = {
     exercise: "",
     reps: 1,
     sets: 1,
@@ -27,6 +27,6 @@ const create_session_exercise = {
 export {
     initial_registration_form_data,
     initial_login_form_data,
-    create_session_data,
-    create_session_exercise
+    create_program_data,
+    create_program_exercise
 }

@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect, Suspense } from 'react';
 import { Route, Routes, useNavigate } from "react-router-dom"
-import { About, AthleteProfile, CreateSession, Login, Register } from './providers/routes_provider';
+import { About, AthleteProfile, CreateProgram, Login, Register } from './providers/routes_provider';
 import More from './templates/info/more';
 import './styles/main.css'
 import navigationBar from './templates/partials/navigation_bar';
@@ -64,11 +64,8 @@ function App() {
 
   // }, [])
   const update_login_state = () => set_is_logged_in(!is_logged_in)
-
   // if (loading) return 'Loading...';
   // if (error) re  turn `Error! ${error.message}`;
-
-
   return (
     <main>
       <div className="bg-text pos-abs">
@@ -88,7 +85,7 @@ function App() {
                 value={is_logged_in ? "login_data" : ""} />
               <Route path="/app/about" element={<About />} />
               <Route path="/settings" element={<More />} />
-              <Route path="/programs/:id" element={<CreateSession />} />
+              <Route path="/programs/:id" element={<CreateProgram />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} onChange={set_is_logged_in}
                 value={is_logged_in

@@ -2,17 +2,24 @@ import { gql } from "@apollo/client";
 
 const get_programs = gql`
   query  getPrograms($key: Int!) {
-    getPrograms(keys: $key) {
-      id
-      data
-      days
-      type
-      keys
-      created_at
-      updated_at
-      private
+  getPrograms(keys: $key) {
+    id
+    exercises {
+      exercise
+      reps
+      sets
+      rest
     }
+    instructions
+    days
+    type
+    keys
+    created_at
+    updated_at
+    private
+    __typename
   }
+}
 `;
 
 const count_programs = gql`
@@ -23,6 +30,26 @@ const count_programs = gql`
   }
 `;
 
+
+const create_program = gql`
+  mutation createProgram($input: ProgramInput!) {
+    createProgram(input: $input){
+      id
+      exercises {
+        exercise
+        reps
+        sets
+        rest
+      }
+      days
+      type
+      keys
+      created_at
+      updated_at
+      private
+  }
+}
+`
 // export const SUBMIT_ENQUIRY_FORM = gql`
 //   mutation submitEnquiryForm(
 //     $name: String!
@@ -51,6 +78,7 @@ const count_programs = gql`
 
 export {
   get_programs,
-  count_programs
+  count_programs,
+  create_program
 }
 

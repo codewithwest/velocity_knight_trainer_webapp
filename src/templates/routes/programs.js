@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import ProgramCards from "../components/programs/program_card.js";
-import { get_programs } from '../../providers/data_schema/graphql/main';
+import { get_programs } from '../../providers/data_schema/graphql/program.js';
 import { useQuery } from "@apollo/client";
 import "../../styles/components/program_cards.css"
 

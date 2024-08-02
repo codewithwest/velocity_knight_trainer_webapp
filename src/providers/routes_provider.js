@@ -1,4 +1,4 @@
-import { CreateSession } from '../templates/components/forms/create_session';
+import { CreateProgram } from '../templates/components/forms/create_program';
 import { AthleteProfile } from '../templates/routes/profile';
 import { SessionLog } from '../templates/routes/sessions_log';
 import { Home } from '../templates/home';
@@ -10,7 +10,7 @@ import About from '../templates/info/about';
 
 
 export {
-    CreateSession,
+    CreateProgram,
     AthleteProfile,
     SessionLog,
     Home,

@@ -1,5 +1,3 @@
-
-
 class displayHandler {
     async displayNone(_class_id) {
         document.querySelector(`.${_class_id}`).style.display = "none"
@@ -12,7 +10,6 @@ class displayHandler {
     }
 }
 
-
 class displaySwitch extends displayHandler {
     swapDisplay(flex_div, none_div) {
         this.displayNone(none_div)
@@ -23,7 +20,6 @@ class displaySwitch extends displayHandler {
         this.displayGrid(flex_div)
     }
     async displaySuccessMessage(succ_div, form_div, modal_cont) {
-
         this.swapDisplay(succ_div, form_div)
         // setTimeout(() => {
         //     this.swapDisplay(succ_div, form_div)
@@ -31,6 +27,7 @@ class displaySwitch extends displayHandler {
         // }, 1000)
     }
 }
+
 export {
     displayHandler,
     displaySwitch

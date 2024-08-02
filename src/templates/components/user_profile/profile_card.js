@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { EditIcon, PersonAddAlt1Icon, TrendingUpIcon } from "../../../providers/icons";
-import { count_programs } from "../../../providers/data_schema/graphql/main";
+import { count_programs } from "../../../providers/data_schema/graphql/program";
 import { useQuery } from "@apollo/client";
 import { useMemo } from "react";
 import "../../../styles/components/profile_cards.css"
