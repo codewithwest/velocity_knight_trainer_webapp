@@ -4,10 +4,15 @@ import "../../../styles/components/create_session.css";
 import { useParams } from "react-router-dom";
 import AddBoxOutlined from "@mui/icons-material/AddBoxOutlined";
 import { create_session_data, create_session_exercise } from "../../../providers/data_schema/schemas";
-import { collect_exercises } from "../../../providers/helpers/helper";
+import { collect_exercises, input_error_highlight } from "../../../providers/helpers/helper";
+import { useMutation } from "@apollo/client";
 
 export function CreateSession() {
   // const { id } = useParams();
+
+  // const [register, { loading, data, error }] = useMutation(login_user, {
+  //   variables: { input: formdata }
+  // })
 
   const [formdata, setFormData] = useState(create_session_data);
   const [exercise_data, setExerciseData] = useState({})
@@ -22,7 +27,6 @@ export function CreateSession() {
     let new_exercise_data = collect_exercises(e, exercise_data)
 
     setExerciseData({ ...new_exercise_data });
-    console.error(exercise_data)
   };
 
   // node --trace-deprecation
@@ -36,12 +40,26 @@ export function CreateSession() {
     formdata.exercises = exercise_list
     setFormData(formdata)
     // register()
+    if (formdata.exercises.length == 0 || formdata.name) {
+      input_error_highlight('input-cont')
+    }
   }
 
   const addExerciseTot = (e) => {
     e.preventDefault()
     addExercise(exercise_count + 1);
   };
+
+
+  // useEffect(() => {
+  //   if (login_response?.id) {
+  //     setUserData(login_response)
+  //     console.error(login_response?.message)
+  //     localStorage.setItem("token", login_response?.token);
+  //     localStorage.setItem("id", login_response?.id);
+  //     setTimeout(() => navigate('/'), 5)
+  //   }
+  // }, [login_response, user_data])
 
   return (
     <div className="create-session w-100 h-100">
@@ -54,12 +72,11 @@ export function CreateSession() {
         </div>
         {Array.from(Array(exercise_count)).map((c, index) => {
           return (
-
             <div className="group-inputs w-100" id={index} key={index} >
               <br />
               <div className="input-cont w-100">
                 <input type="text" className="input-area"
-                  id={"exercise"} placeholder="" onChange={handleExerciseChange} />
+                  id={"exercise"} placeholder="" onChange={handleExerciseChange} required />
                 <label htmlFor="exercise"
                 >exercises
                 </label>
@@ -100,8 +117,8 @@ export function CreateSession() {
             createSession()
           }
           }>
-          <AddBoxOutlined>
-          </AddBoxOutlined>
+          {/* <AddBoxOutlined>
+          </AddBoxOutlined> */}
           Create Session
         </button>
       </form >

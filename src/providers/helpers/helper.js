@@ -11,5 +11,13 @@ const collect_exercises = (e, exercise_data) => {
     return exercise_data
 }
 
+const input_error_highlight = (error_selector) => {
+    let _inputs = document.querySelectorAll(`.${error_selector}`);
+    _inputs.forEach(
+        (el) =>
+        (el.style.boxShadow =
+            "1.5px 1.5px 1px rgba(220,22,11,.6),-1.5px -1.5px 1px rgba(220,22,11,.6)")
+    )
+}
 
-export { collect_exercises }
+export { collect_exercises, input_error_highlight }
