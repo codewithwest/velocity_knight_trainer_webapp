@@ -21,7 +21,7 @@ export function CreateProgram() {
   const [exercise_data, setExerciseData] = useState({})
   const [exercise_count, addExercise] = useState(1);
   const [_program_data, setProgramData] = useState()
-  const [mapping_exercises, setMappingData] = useState()
+  const [mapping_exercises, setMappingData] = useState(1)
 
   // Get program id not edit
   const program_data = useQuery(get_programs, {
@@ -42,8 +42,6 @@ export function CreateProgram() {
       variables: { input: formdata }
     })
 
-
-
   const handleChange = (e) => {
     setFormData({ ...formdata, [e.target.id]: e.target.value });
   };
@@ -52,7 +50,6 @@ export function CreateProgram() {
     let new_exercise_data = collect_exercises(e, exercise_data)
     setExerciseData({ ...new_exercise_data });
   };
-
   // node --trace-deprecation
   const createprogram = () => {
     formdata.exercises = []
@@ -71,7 +68,6 @@ export function CreateProgram() {
   }
   const updateprogram = (e) => {
     let _form_children = e.target.parentNode.children
-    console.error(typeof _form_children)
     // Get main elements
     let main_fields_obj = {}
     let exercise_obj = {}
@@ -130,14 +126,14 @@ export function CreateProgram() {
       }
       else return error
     }
-  }, [loading, create_program_response_data, error, edit]);
+  }, [loading, create_program_response_data, error]);
 
   useEffect(() => {
     if (create_program_response?.id) {
       setEdit(false)
       setProgramData(create_program_response)
       setMappingData(create_program_response?.exercises)
-      if (location.pathname === "/program/new") {
+      if (location.pathname === "/programs/new") {
         setTimeout(() => navigate('/programs/' + create_program_response?.id), 5)
       }
     }
@@ -156,11 +152,13 @@ export function CreateProgram() {
       setMappingData(Array.from(Array(exercise_count)))
     }
 
-    if (edit) {
-      setMappingData(_program_data?.exercises)
+    if (edit === true) {
+      console.error(_program_data)
+      // setMappingData(_program_data?.exercises)
     }
-  }, [create_program_response, program_data,
-    exercise_count, edit,
+  }, [create_program_response, program_data, edit,
+    exercise_count, id, location.pathname, mapping_exercises,
+    navigate
   ]);
 
   return (
