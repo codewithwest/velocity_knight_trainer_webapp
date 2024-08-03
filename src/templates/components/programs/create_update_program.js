@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { AddBoxOutlined } from '../../../providers/icons'
 
 export function CreateUpdateProgram(
@@ -70,8 +69,7 @@ export function CreateUpdateProgram(
             <button className="submit  d-flex" id="submit"
                 onClick={(e) => {
                     e.preventDefault()
-                    { edit === "new" ? createprogram() : updateprogram(e) }
-
+                    edit === "new" ? createprogram() : updateprogram(e)
                 }
                 }>
                 {edit === "new" ? "Create" : "Update"} program

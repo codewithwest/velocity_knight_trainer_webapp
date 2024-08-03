@@ -4,7 +4,7 @@ import { get_programs } from '../../../providers/data_schema/graphql/program.js'
 import { useQuery } from "@apollo/client";
 import "../../../styles/components/program_cards.css"
 import AddBoxOutlined from "@mui/icons-material/AddBoxOutlined.js";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function Programs({ is_logged_in }) {
 

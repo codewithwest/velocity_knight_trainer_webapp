@@ -6,10 +6,10 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { create_program_data } from "../../../providers/data_schema/schemas";
 import { collect_exercises, input_error_highlight } from "../../../providers/helpers/helper";
 import { useMutation, useQuery } from "@apollo/client";
-import { create_program, get_programs } from "../../../providers/data_schema/graphql/program";
+import { create_program, get_programs, update_program } from "../../../providers/data_schema/graphql/program";
 import Loader from "../loader";
 import ViewProgram from "./view_program";
-import { Edit, Label } from "@mui/icons-material";
+import { Edit } from "@mui/icons-material";
 import { CreateUpdateProgram } from "./create_update_program";
 
 export function CreateProgram() {
@@ -38,9 +38,11 @@ export function CreateProgram() {
   const [_create_program, {
     loading,
     create_program_response_data,
-    error }] = useMutation(create_program, {
+    error }] = useMutation(edit === "new" ? create_program : update_program, {
       variables: { input: formdata }
     })
+
+
 
   const handleChange = (e) => {
     setFormData({ ...formdata, [e.target.id]: e.target.value });
@@ -81,14 +83,17 @@ export function CreateProgram() {
         exercise_obj = {}
         Array.from(main_fields.children)?.map(exercises => {
           Array.from(exercises.children)?.map((exercise, index) => {
-            if (exercise.tagName?.toLowerCase() == "label") return
+            if (exercise.tagName?.toLowerCase() === "label") return true
             exercise_obj[exercise?.id] = exercise?.value
+            return true
           })
           if (!Object.values(exercise_obj).includes(undefined)) {
             exercises_list.push(exercise_obj)
           }
+          return true
         })
       }
+      return [main_fields_obj, exercise_obj, exercises_list]
     });
 
     function getUniqueListBy(arr, key) {
@@ -98,7 +103,10 @@ export function CreateProgram() {
     main_fields_obj['id'] = parseInt(localStorage?.id)
     main_fields_obj['keys'] = [parseInt(localStorage?.id)]
 
-    console.error(main_fields_obj)
+    setFormData({})
+    setFormData({ ...main_fields_obj })
+
+    _create_program()
   }
 
   const addExerciseTot = (e) => {
@@ -107,18 +115,28 @@ export function CreateProgram() {
   };
 
   let create_program_response = useMemo(() => {
-    if (loading) return [" "]
-    else if (create_program_response_data) {
-      localStorage.updateProgram = create_program_response_data?.createProgram[0]
-      return create_program_response_data?.createProgram
+    if (edit === 'true') {
+      if (loading) return [" "]
+      else if (create_program_response_data) {
+        localStorage.updateProgram = JSON.stringify(create_program_response_data?.updateProgram)
+        return JSON.parse(localStorage.updateProgram)
+      }
+      else return error
+    } else {
+      if (loading) return [" "]
+      else if (create_program_response_data) {
+        localStorage.updateProgram = JSON.stringify(create_program_response_data?.createProgram)
+        return JSON.parse(create_program_response_data?.createProgram)
+      }
+      else return error
     }
-    else return error
-  }, [loading, create_program_response_data, error]);
+  }, [loading, create_program_response_data, error, edit]);
 
   useEffect(() => {
     if (create_program_response?.id) {
-      setFormData(create_program_response)
       setEdit(false)
+      setProgramData(create_program_response)
+      setMappingData(create_program_response?.exercises)
       if (location.pathname === "/program/new") {
         setTimeout(() => navigate('/programs/' + create_program_response?.id), 5)
       }
@@ -142,7 +160,7 @@ export function CreateProgram() {
       setMappingData(_program_data?.exercises)
     }
   }, [create_program_response, program_data,
-    exercise_count, edit
+    exercise_count, edit,
   ]);
 
   return (
@@ -166,12 +184,11 @@ export function CreateProgram() {
               createprogram, mapping_exercises, edit, updateprogram)
             :
             (<>
-              {program_data.loading ? <Loader /> :
+              {program_data?.loading ? <Loader /> :
                 _program_data?.name ? ViewProgram(_program_data) :
                   <div className="m-auto">Please Try Refresh!</div>}
             </>)
       }
-      <p>{JSON.stringify(formdata)}</p>
     </div >
   );
 }

@@ -35,6 +35,7 @@ const create_program = gql`
   mutation createProgram($input: ProgramInput!) {
     createProgram(input: $input){
       id
+      name
       exercises {
         exercise
         reps
@@ -42,6 +43,7 @@ const create_program = gql`
         rest
       }
       days
+      instructions
       type
       keys
       created_at
@@ -50,35 +52,32 @@ const create_program = gql`
   }
 }
 `
-// export const SUBMIT_ENQUIRY_FORM = gql`
-//   mutation submitEnquiryForm(
-//     $name: String!
-//     $email: String!
-//     $comment: String!
-//     $telephone: String
-//     $store_id: String
-//     $contact_preference: ContactPreferenceEnum
-//     $subject_details: ContactUsSubjectInput!
-//   ) {
-//     contactUs(
-//       input: {
-//         name: $name
-//         email: $email
-//         comment: $comment
-//         telephone: $telephone
-//         store_id: $store_id
-//         contact_preference: $contact_preference
-//         subject_details: $subject_details
-//       }
-//     ) {
-//       status
-//     }
-//   }
-// `;
+const update_program = gql`
+  mutation updateProgram($input: ProgramInput!) {
+  updateProgram(input: $input){
+    id
+    name
+      exercises {
+      exercise
+      reps
+      sets
+      rest
+    }
+    days
+    type
+    instructions
+    keys
+    created_at
+    updated_at
+    private
+  }
+}
+`
 
 export {
   get_programs,
   count_programs,
-  create_program
+  create_program,
+  update_program
 }
 
