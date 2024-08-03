@@ -2,7 +2,6 @@
 
 
 export default function ViewProgram(program) {
-    console.log((program))
     return (
         // program?.map((program, index) => (
         <div action="form-cont">

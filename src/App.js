@@ -84,7 +84,7 @@ function App() {
               <Route path="/app/about" element={<About />} />
               <Route path="/settings" element={<More />} />
               <Route path="/programs/:id" element={<CreateProgram />} />
-              <Route path="/programs/new" element={<CreateProgram />} />
+              <Route path="/program/new" element={<CreateProgram />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} onChange={set_is_logged_in}
                 value={is_logged_in

@@ -21,6 +21,10 @@
     outline: none;
 }
 
+input[data-autocompleted] {
+    background-color: transparent !important;
+}
+
 .input-cont>#rest {
     max-width: 50px;
 }

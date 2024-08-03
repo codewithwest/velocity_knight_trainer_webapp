@@ -1,21 +1,24 @@
-export function CreateUpdateProgram(_program_data, handleChange, handleExerciseChange,
+import { useEffect } from 'react'
+import { AddBoxOutlined } from '../../../providers/icons'
+
+export function CreateUpdateProgram(
+    _program_data, handleChange, handleExerciseChange,
     addExerciseTot, createprogram, mapping_exercises,
-    edit) {
+    edit, updateprogram) {
+
     return (
-        <form action="form-cont">
+        <form id='create-update-form' >
             <div className="input-cont">
                 <input type="text" className="input-area" id="name"
                     defaultValue={_program_data?.name ?? ""}
                     onChange={handleChange}
                     placeholder="" />
-                <label htmlFor="name">program name</label>
+                <label htmlFor="name">Program name</label>
             </div>
             {
-
                 mapping_exercises?.map((exercise, index) => {
                     return (
                         <div className="group-inputs w-100" id={index} key={index} >
-                            <br />
                             <div className="input-cont w-100">
                                 <input type="text" className="input-area"
                                     id={"exercise"}
@@ -47,8 +50,9 @@ export function CreateUpdateProgram(_program_data, handleChange, handleExerciseC
                             </div>
                         </div>
                     )
-                })}
-            <div className="add_exercise d-flex">
+                })
+            }
+            <div className="create_program d-flex">
                 <button className="d-flex w-100"
                     onClick={addExerciseTot}>
                     <AddBoxOutlined>
@@ -66,11 +70,10 @@ export function CreateUpdateProgram(_program_data, handleChange, handleExerciseC
             <button className="submit  d-flex" id="submit"
                 onClick={(e) => {
                     e.preventDefault()
-                    createprogram()
+                    { edit === "new" ? createprogram() : updateprogram(e) }
+
                 }
                 }>
-                {/* <AddBoxOutlined>
-          </AddBoxOutlined> */}
                 {edit === "new" ? "Create" : "Update"} program
             </button>
         </form >
