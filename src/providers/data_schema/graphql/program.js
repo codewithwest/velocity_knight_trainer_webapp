@@ -1,18 +1,19 @@
 import { gql } from "@apollo/client";
 
 const get_programs = gql`
-  query  getPrograms($key: Int!) {
-  getPrograms(keys: $key) {
+query getPrograms($input: ProgramInput!) {
+  getPrograms(input: $input) {
     id
+    name
     exercises {
       exercise
       reps
       sets
       rest
     }
-    instructions
     days
     type
+    instructions
     keys
     created_at
     updated_at
@@ -29,7 +30,6 @@ const count_programs = gql`
     }
   }
 `;
-
 
 const create_program = gql`
   mutation createProgram($input: ProgramInput!) {

@@ -1,4 +1,5 @@
-import { CreateProgram } from '../templates/components/forms/create_program';
+import { CreateProgram } from '../templates/components/programs/create_program';
+import { Programs } from '../templates/components/programs/programs';
 import { AthleteProfile } from '../templates/routes/profile';
 import { SessionLog } from '../templates/routes/sessions_log';
 import { Home } from '../templates/home';
@@ -10,6 +11,7 @@ import About from '../templates/info/about';
 
 
 export {
+    Programs,
     CreateProgram,
     AthleteProfile,
     SessionLog,

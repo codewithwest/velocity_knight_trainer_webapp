@@ -9,7 +9,7 @@ export default function ProgramCards(program) {
                     no-underline p-2">
             <div className="d-flex w-100">
                 <h4 key={program.id} className="program-header d-flex center-content w-100 p-1 overflow-hidden">
-                    {program.type ?? "standard"}</h4>
+                    {program.name ?? "standard"}</h4>
                 <Link className="d-flex center-content p-2 mb-auto" to={{ pathname: `/programs/${program.id}`, state: program }}>
                     <OpenInBrowserOutlined></OpenInBrowserOutlined>
                 </Link>
@@ -27,10 +27,8 @@ export default function ProgramCards(program) {
                             </tr>
                         </thead>
                         <tbody>
-                            {console.error(program)}
                             {program?.exercises?.map((exercise, idx) => (
                                 <tr key={idx} className="">
-                                    {console.error(exercise)}
                                     <td className="px-3 py-2 text-md">{exercise?.exercise ?? ""}</td>
                                     <td className="px-3 py-2 text-md">{exercise?.sets ?? ""}</td>
                                     <td className="px-3 py-2 text-md">{exercise?.reps ?? ""}</td>

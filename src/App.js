@@ -1,15 +1,13 @@
 import './App.css';
 import { useState, useEffect, Suspense } from 'react';
 import { Route, Routes, useNavigate } from "react-router-dom"
-import { About, AthleteProfile, CreateProgram, Login, Register } from './providers/routes_provider';
+import { About, AthleteProfile, CreateProgram, Login, Programs, Register } from './providers/routes_provider';
 import More from './templates/info/more';
 import './styles/main.css'
 import navigationBar from './templates/partials/navigation_bar';
-import Programs from './templates/routes/programs';
 
 function App() {
   const navigate = useNavigate();
-
   // const { data, loading, error } = useLazyQuery(getPrograms, { variables: { key: 1 } });
   // const [state, setState] = React.useState(num);
 
@@ -86,6 +84,7 @@ function App() {
               <Route path="/app/about" element={<About />} />
               <Route path="/settings" element={<More />} />
               <Route path="/programs/:id" element={<CreateProgram />} />
+              <Route path="/programs/new" element={<CreateProgram />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} onChange={set_is_logged_in}
                 value={is_logged_in

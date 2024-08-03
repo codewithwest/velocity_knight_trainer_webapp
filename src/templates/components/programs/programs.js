@@ -1,13 +1,13 @@
 import { useMemo } from "react";
-import ProgramCards from "../components/programs/program_card.js";
-import { get_programs } from '../../providers/data_schema/graphql/program.js';
+import ProgramCards from "./program_card.js";
+import { get_programs } from '../../../providers/data_schema/graphql/program.js';
 import { useQuery } from "@apollo/client";
-import "../../styles/components/program_cards.css"
+import "../../../styles/components/program_cards.css"
 
-export default function Programs({ is_logged_in }) {
+export function Programs({ is_logged_in }) {
 
     const { data, loading } = useQuery(get_programs, {
-        variables: { key: parseInt(localStorage.getItem("id")) },
+        variables: { input: { keys: parseInt(localStorage.getItem("id")) } },
         fetchPolicy: "cache-and-network",
         nextFetchPolicy: "cache-first",
     });
@@ -23,7 +23,7 @@ export default function Programs({ is_logged_in }) {
                 <div key={program?.id} className="program-card-cont">
                     {ProgramCards(program)}
                 </div>
-            </div >
+            </div>
         ))
     )
 }
