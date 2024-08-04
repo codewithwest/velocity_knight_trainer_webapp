@@ -1,17 +1,18 @@
 import './App.css';
-import { useState, useEffect } from 'react';
-// import { logged_in_icon, logged_out_icon } from './functions/ConstIcons';
+import { useState, useEffect, Suspense } from 'react';
 import { Route, Routes, useNavigate } from "react-router-dom"
-import { About, AthleteProfile, CreateSession, Login, Register, SessionLog } from './providers/routes_provider';
+import {
+  About, AthleteProfile, CreateProgram,
+  Login, Programs, Register, UpdateProgram,
+  ViewProgram
+} from './providers/routes_provider';
 import More from './templates/info/more';
 import './styles/main.css'
 import navigationBar from './templates/partials/navigation_bar';
-import Programs from './templates/routes/programs';
+// import ViewProgram from './templates/components/programs/view_program';
 
-// const display_handler = new displayHandler()
 function App() {
   const navigate = useNavigate();
-
   // const { data, loading, error } = useLazyQuery(getPrograms, { variables: { key: 1 } });
   // const [state, setState] = React.useState(num);
 
@@ -66,11 +67,8 @@ function App() {
 
   // }, [])
   const update_login_state = () => set_is_logged_in(!is_logged_in)
-
   // if (loading) return 'Loading...';
   // if (error) re  turn `Error! ${error.message}`;
-
-
   return (
     <main>
       <div className="bg-text pos-abs">
@@ -84,18 +82,25 @@ function App() {
       <div className='body d-flex h-100 w-100'>
         {navigationBar()}
         <div className="content d-flex w-100 h-100">
-          <Routes>
-            <Route path="/" element={<Programs />} on_logged_in={update_login_state}
-              value={is_logged_in ? "login_data" : ""} />
-            <Route path="/app/about" element={<About />} />
-            <Route path="/settings" element={<More />} />
-            <Route path="/new/session" element={<CreateSession />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} onChange={set_is_logged_in}
-              value={is_logged_in
-                ? "login_data" : ""} />
-            <Route path="/profile" element={<AthleteProfile />} />
-          </Routes>
+          <Suspense fallback={<div className="container">Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Programs />} on_logged_in={update_login_state}
+                value={is_logged_in ? "login_data" : ""} />
+              <Route path="/app/about" element={<About />} />
+              <Route path="/settings" element={<More />} />
+              {/* <Route path='/program/' */}
+              <Route path="/program/new" element={<CreateProgram />} />
+              <Route path="/program/:id/edit" element={<UpdateProgram />} />
+              <Route path="/programs/:id" element={<ViewProgram />} />
+
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} onChange={set_is_logged_in}
+                value={is_logged_in
+                  ? "login_data" : ""} />
+              <Route path="/profile" element={<AthleteProfile />} />
+              {/* <Route path="*" element={<NoMatch />} /> */}
+            </Routes>
+          </Suspense>
         </div>
       </div>
     </main>

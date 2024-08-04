@@ -46,6 +46,7 @@ export default function Login(props) {
       setUserData(login_response)
       console.error(login_response?.message)
       localStorage.setItem("token", login_response?.token);
+      localStorage.setItem("id", login_response?.id);
       setTimeout(() => navigate('/'), 5)
     }
   }, [login_response, user_data])

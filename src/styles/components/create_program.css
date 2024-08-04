@@ -1,0 +1,155 @@
+.input-cont {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding: 5px;
+    position: relative;
+}
+
+.input-cont>.input-area {
+    padding: 15px 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: .5px .5px 4px rgba(var(--main-text-color), .4),
+        -.5px -.5px 4px rgba(var(--main-text-color));
+    background: inherit;
+    color: inherit;
+    flex: 1 0 50px;
+}
+
+.input-cont>.input-area:focus {
+    outline: none;
+}
+
+input[data-autocompleted] {
+    background-color: transparent !important;
+}
+
+.input-cont>#rest {
+    max-width: 50px;
+}
+
+.input-cont>label {
+    position: absolute;
+    left: 10px;
+    top: 18px;
+    padding: 0 2px;
+    text-transform: capitalize;
+    background: inherit;
+    transition: all 0.7s ease-in;
+    pointer-events: none;
+
+}
+
+.input-cont>.input-area:focus~label {
+    top: -1px;
+    font-size: small;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.input-numbers[type="number"] {
+    max-width: 50px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.input-cont>.input-area:not(:placeholder-shown)~label {
+    top: -1px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.group-inputs {
+    display: inline-flex;
+    grid-template: 60px / auto auto auto auto;
+    padding: 2px;
+}
+
+.add_exercise>button {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    height: 40px;
+    font-size: small;
+    padding: 5px;
+}
+
+
+#submit {
+    margin: 10px 20px 0 auto;
+    padding: 12px 7px;
+    border-radius: 5px;
+    background: inherit;
+    color: inherit;
+    box-shadow: 2.5px 2.5px 4px rgba(var(--main-text-color), .25),
+        -.5px -.5px 2px rgba(var(--main-text-color), .25);
+}
+
+.edit-back-form {
+    margin-right: 100%;
+}
+
+
+@media screen and (max-width:600px) {
+    .form-cont {
+        margin: 2px;
+        border-radius: 5px;
+        font-size: small;
+    }
+
+    .input-cont {
+        margin-top: 3px;
+        padding: 6px 3.5px;
+    }
+
+    .input-cont>.input-area {
+        padding: 13px 7px;
+        text-indent: 3px;
+        border-radius: 4px;
+
+    }
+
+    .input-cont>label {
+        left: 7px;
+        top: 12px;
+        font-size: small;
+
+    }
+
+    .input-numbers[type="number"] {
+        max-width: 40px;
+    }
+
+    .input-area[type="text"] {
+        flex: 1 0 40px;
+    }
+
+    #exercise {
+        width: 100%;
+    }
+
+    .input-cont>#rest {
+        max-width: 40px;
+        /* font-size: x-small; */
+    }
+
+    .input-cont>.input-area:focus~label {
+        top: -4px;
+        border-radius: 3px;
+    }
+
+    .input-cont>.input-area:not(:placeholder-shown)~label {
+        top: -4px;
+    }
+}

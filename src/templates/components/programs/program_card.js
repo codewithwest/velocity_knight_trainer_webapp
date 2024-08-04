@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom"
-import "../../styles/components/program_cards.css"
+import "../../../styles/components/program_cards.css";
 import { OpenInBrowserOutlined } from "@mui/icons-material"
 
 export default function ProgramCards(program) {
     return (
         <div className="program-card w-100 rounded-md
-                   shadow-sm  
-                    no-underline p-2">
+                   shadow-sm no-underline p-2">
             <div className="d-flex w-100">
                 <h4 key={program.id} className="program-header d-flex center-content w-100 p-1 overflow-hidden">
-                    {program.type ?? "standard"}</h4>
-                <Link className="d-flex center-content p-2 mb-auto" to={"/programs/id/" + program.id}>
+                    {program.name ?? "standard"}</h4>
+                <Link className="d-flex center-content p-2 mb-auto" to={{ pathname: `/programs/${program.id}`, state: program }}>
                     <OpenInBrowserOutlined></OpenInBrowserOutlined>
                 </Link>
             </div>
@@ -23,18 +22,18 @@ export default function ProgramCards(program) {
                                 <th scope="col" className="px-3 py-3 text-md capitalize">Exercise</th>
                                 <th scope="col" className="px-3 py-3 text-md capitalize">Reps</th>
                                 <th scope="col" className="px-3 py-3 text-md capitalize">Sets</th>
+                                <th scope="col" className="px-3 py-3 text-md capitalize">Rest</th>
                             </tr>
                         </thead>
                         <tbody>
-
-                            {program?.data?.map((exercise, idx) => (
+                            {program?.exercises?.map((exercise, idx) => (
                                 <tr key={idx} className="">
-                                    {exercise?.split(",")?.map((ext, ix) => (
-                                        <td key={ix} className="px-3 py-2 text-md">{ext}</td>
-                                    ))}
+                                    <td className="px-3 py-2 text-md">{exercise?.exercise ?? ""}</td>
+                                    <td className="px-3 py-2 text-md">{exercise?.sets ?? ""}</td>
+                                    <td className="px-3 py-2 text-md">{exercise?.reps ?? ""}</td>
+                                    <td className="px-3 py-2 text-md">{exercise?.rest ?? ""}</td>
                                 </tr>
                             ))}
-
                         </tbody>
                     </table>
                 </div>

@@ -6,6 +6,10 @@ import FilterCenterFocusIcon from '@mui/icons-material/FilterCenterFocus';
 import EditIcon from '@mui/icons-material/Edit';
 import EditOffIcon from '@mui/icons-material/EditOff';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import AddBoxOutlined from "@mui/icons-material/AddBoxOutlined";
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 export {
     FlashOnIcon,
     AccountCircleIcon,
@@ -14,5 +18,10 @@ export {
     FilterCenterFocusIcon,
     EditIcon,
     EditOffIcon,
-    OpenInNewIcon
+    OpenInNewIcon,
+    PersonAddAlt1Icon,
+    TrendingUpIcon,
+    AddBoxOutlined,
+    KeyboardDoubleArrowLeftIcon
+
 }

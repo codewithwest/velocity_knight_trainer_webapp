@@ -1,12 +1,12 @@
 import { useQuery } from "@apollo/client";
-import { get_user } from "../../providers/data_schema/graphql/user";
+import { get_user } from "../../providers/data_schema/graphql/user.js";
 import { useMemo } from "react";
 import ProfileCard from "../components/user_profile/profile_card.js";
 
 
 export function AthleteProfile() {
     const { data, loading } = useQuery(get_user, {
-        variables: { id: 1 },
+        variables: { id: parseInt(localStorage.getItem("id")) },
         fetchPolicy: "cache-and-network",
         nextFetchPolicy: "cache-first",
     });
