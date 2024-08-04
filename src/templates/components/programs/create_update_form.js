@@ -1,9 +1,9 @@
 import { AddBoxOutlined } from '../../../providers/icons'
 
-export function CreateUpdateProgram(
+export function CreateUpdateForm(
     _program_data, handleChange, handleExerciseChange,
     addExerciseTot, createprogram, mapping_exercises,
-    edit, updateprogram) {
+    edit) {
 
     return (
         <form id='create-update-form' >
@@ -15,7 +15,7 @@ export function CreateUpdateProgram(
                 <label htmlFor="name">Program name</label>
             </div>
             {
-                mapping_exercises?.map((exercise, index) => {
+                mapping_exercises.map((exercise, index) => {
                     return (
                         <div className="group-inputs w-100" id={index} key={index} >
                             <div className="input-cont w-100">
@@ -69,7 +69,7 @@ export function CreateUpdateProgram(
             <button className="submit  d-flex" id="submit"
                 onClick={(e) => {
                     e.preventDefault()
-                    edit === "new" ? createprogram() : updateprogram(e)
+                    createprogram(e)
                 }
                 }>
                 {edit === "new" ? "Create" : "Update"} program

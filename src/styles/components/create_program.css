@@ -85,6 +85,7 @@ input[type=number] {
     padding: 5px;
 }
 
+
 #submit {
     margin: 10px 20px 0 auto;
     padding: 12px 7px;
@@ -94,6 +95,11 @@ input[type=number] {
     box-shadow: 2.5px 2.5px 4px rgba(var(--main-text-color), .25),
         -.5px -.5px 2px rgba(var(--main-text-color), .25);
 }
+
+.edit-back-form {
+    margin-right: 100%;
+}
+
 
 @media screen and (max-width:600px) {
     .form-cont {

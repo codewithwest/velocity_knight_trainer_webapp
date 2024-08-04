@@ -1,10 +1,15 @@
 import './App.css';
 import { useState, useEffect, Suspense } from 'react';
 import { Route, Routes, useNavigate } from "react-router-dom"
-import { About, AthleteProfile, CreateProgram, Login, Programs, Register } from './providers/routes_provider';
+import {
+  About, AthleteProfile, CreateProgram,
+  Login, Programs, Register, UpdateProgram,
+  ViewProgram
+} from './providers/routes_provider';
 import More from './templates/info/more';
 import './styles/main.css'
 import navigationBar from './templates/partials/navigation_bar';
+// import ViewProgram from './templates/components/programs/view_program';
 
 function App() {
   const navigate = useNavigate();
@@ -83,8 +88,10 @@ function App() {
                 value={is_logged_in ? "login_data" : ""} />
               <Route path="/app/about" element={<About />} />
               <Route path="/settings" element={<More />} />
-              <Route path="/programs/new" element={<CreateProgram />} />
-              <Route path="/programs/:id" element={<CreateProgram />} />
+              {/* <Route path='/program/' */}
+              <Route path="/program/new" element={<CreateProgram />} />
+              <Route path="/program/:id/edit" element={<UpdateProgram />} />
+              <Route path="/programs/:id" element={<ViewProgram />} />
 
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} onChange={set_is_logged_in}

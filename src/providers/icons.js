@@ -20,5 +20,6 @@ export {
     OpenInNewIcon,
     PersonAddAlt1Icon,
     TrendingUpIcon,
-    AddBoxOutlined
+    AddBoxOutlined,
+
 }

@@ -22,7 +22,7 @@ export function Programs({ is_logged_in }) {
         <>
             <div className="new_program d-flex">
                 <Link className="d-flex w-100 center-content"
-                    to={'/programs/new'}>
+                    to={'/program/new'}>
                     <AddBoxOutlined>
                     </AddBoxOutlined>
                     New Program
