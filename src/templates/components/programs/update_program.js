@@ -126,7 +126,7 @@ export function UpdateProgram() {
             </button>
 
             {
-                program_data.loading ? <Loader /> :
+                loading ? <Loader /> :
                     CreateUpdateForm(_program_data, handleChange,
                         handleExerciseChange, addExerciseTot,
                         updateprogram, mapping_exercises ?? [], true)

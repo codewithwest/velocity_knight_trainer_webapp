@@ -9,6 +9,7 @@ import { useMutation } from "@apollo/client";
 import { create_program } from "../../../providers/data_schema/graphql/program";
 import Loader from "../loader";
 import { CreateUpdateForm } from "./create_update_form";
+import { KeyboardDoubleArrowLeftIcon } from "../../../providers/icons";
 
 export function CreateProgram() {
   const navigate = useNavigate()
@@ -69,15 +70,24 @@ export function CreateProgram() {
   }, [exercise_count, create_program_response, navigate]);
 
   return (
-    <div className="create-program w-100 h-100">
-
-      {
-        loading ? <Loader /> :
-          CreateUpdateForm(formdata, handleChange,
-            handleExerciseChange, addExerciseTot,
-            createprogram, Array.from(Array(exercise_count)), "new")
+    <> <button className="edit-back-form d-flex" id="submit"
+      onClick={(e) => {
+        e.preventDefault()
+        navigate(-1)
       }
-    </div >
+      }>
+      <KeyboardDoubleArrowLeftIcon>
+      </KeyboardDoubleArrowLeftIcon>
+    </button>
+      <div className="create-program w-100 h-100">
+        {
+          loading ? <Loader /> :
+            CreateUpdateForm(formdata, handleChange,
+              handleExerciseChange, addExerciseTot,
+              createprogram, Array.from(Array(exercise_count)), "new")
+        }
+      </div >
+    </>
   );
 }
 
