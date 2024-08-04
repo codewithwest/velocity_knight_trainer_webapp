@@ -5,8 +5,8 @@ const collect_exercises = (e, exercise_data) => {
     let exercise_data_object = exercise_data[object_target]
 
     exercise_data[object_target] = {
-        ...exercise_data_object, [target_id]: ([target_id] == "reps" || [target_id] == "sets") ?
-            target_value == "" ? 0 :
+        ...exercise_data_object, [target_id]: (target_id.toLowerCase() === "reps" || target_id.toLowerCase() === "sets") ?
+            target_value === "" ? 0 :
                 parseInt(target_value) : target_value
     }
 

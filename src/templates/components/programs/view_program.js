@@ -14,7 +14,7 @@ export function ViewProgram() {
 
     const [_program_data, setProgramData] = useState()
     // Get program id not edit
-    const { loading, data, error } = useQuery(get_programs, {
+    const { loading, data } = useQuery(get_programs, {
         variables: {
             input: {
                 keys: parseInt(localStorage.getItem("id")),
@@ -34,7 +34,6 @@ export function ViewProgram() {
     }, [data]);
 
     return (
-
         <>
             <Link className="edit-form d-flex"
                 id="submit" to={`/program/${id}/edit`}>

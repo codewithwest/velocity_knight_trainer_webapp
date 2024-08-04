@@ -9,6 +9,7 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import AddBoxOutlined from "@mui/icons-material/AddBoxOutlined";
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 export {
     FlashOnIcon,
     AccountCircleIcon,
@@ -21,5 +22,6 @@ export {
     PersonAddAlt1Icon,
     TrendingUpIcon,
     AddBoxOutlined,
+    KeyboardDoubleArrowLeftIcon
 
 }

@@ -8,8 +8,9 @@ import { collect_exercises } from "../../../providers/helpers/helper";
 import { useMutation, useQuery } from "@apollo/client";
 import { get_programs, update_program } from "../../../providers/data_schema/graphql/program";
 import Loader from "../loader";
-import { NavigateBefore } from "@mui/icons-material";
 import { CreateUpdateForm } from "./create_update_form";
+import { KeyboardDoubleArrowLeftIcon } from "../../../providers/icons";
+// import KeyboardDoubleArrowLeft from '../../../providers/icons';
 
 export function UpdateProgram() {
     const navigate = useNavigate()
@@ -45,9 +46,10 @@ export function UpdateProgram() {
 
     const handleExerciseChange = (e) => {
         let new_exercise_data = collect_exercises(e, {})
+        return new_exercise_data
     };
 
-    const updateprogram = (e) => {
+    const updateprogram = async (e) => {
         let _form_children = e.target.parentNode.children
         // Get main elements
         var main_fields_obj = {}
@@ -83,7 +85,7 @@ export function UpdateProgram() {
         main_fields_obj['id'] = parseInt(id)
         main_fields_obj['keys'] = [parseInt(localStorage?.id)]
 
-        setUpdatedFormData({ ...main_fields_obj })
+        await setUpdatedFormData({ ...main_fields_obj })
 
         console.error(updated_form_data)
         _update_program_mutation()
@@ -101,7 +103,6 @@ export function UpdateProgram() {
     }, [loading, data, error]);
 
     useEffect(() => {
-
         if (update_program_response?.id) {
             navigate('/programs/' + parseInt(update_program_response?.id))
         }
@@ -111,7 +112,7 @@ export function UpdateProgram() {
         }
 
     }, [update_program_response, _program_data,
-        program_data, updated_form_data]);
+        program_data, updated_form_data, navigate]);
 
     return (
         <div className="create-program w-100 h-100">
@@ -121,8 +122,7 @@ export function UpdateProgram() {
                     navigate(-1)
                 }
                 }>
-                <NavigateBefore></NavigateBefore>
-                <NavigateBefore></NavigateBefore>
+                <KeyboardDoubleArrowLeftIcon></KeyboardDoubleArrowLeftIcon>
             </button>
 
             {

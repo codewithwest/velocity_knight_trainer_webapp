@@ -2,18 +2,17 @@ import { useEffect, useMemo, useState } from "react";
 import "../../../styles/constants.css";
 import "../../../styles/components/create_program.css";
 import "../../../styles/components/view_program.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { create_program_data } from "../../../providers/data_schema/schemas";
-import { collect_exercises, input_error_highlight } from "../../../providers/helpers/helper";
-import { useMutation, useQuery } from "@apollo/client";
-import { create_program, get_programs, update_program } from "../../../providers/data_schema/graphql/program";
+import { collect_exercises } from "../../../providers/helpers/helper";
+import { useMutation } from "@apollo/client";
+import { create_program } from "../../../providers/data_schema/graphql/program";
 import Loader from "../loader";
 import { CreateUpdateForm } from "./create_update_form";
 
 export function CreateProgram() {
   const navigate = useNavigate()
 
-  const { id } = useParams();
 
   const [formdata, setFormData] = useState(create_program_data);
   const [exercise_data, setExerciseData] = useState({})
@@ -67,7 +66,7 @@ export function CreateProgram() {
       navigate('/programs/' + parseInt(create_program_response?.id))
     }
 
-  }, [exercise_count, create_program_response]);
+  }, [exercise_count, create_program_response, navigate]);
 
   return (
     <div className="create-program w-100 h-100">
