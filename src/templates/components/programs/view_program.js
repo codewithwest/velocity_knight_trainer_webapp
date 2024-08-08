@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import "../../../styles/constants.css";
 import "../../../styles/components/create_program.css";
 import "../../../styles/components/view_program.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { get_programs } from "../../../providers/data_schema/graphql/program";
 import Loader from "../loader";
-import { Edit } from "@mui/icons-material";
+import { Edit, KeyboardDoubleArrowLeftIcon } from "../../../providers/icons"
 
 export function ViewProgram() {
 
     const { id } = useParams();
-
+    const navigate = useNavigate()
     const [_program_data, setProgramData] = useState()
     // Get program id not edit
     const { loading, data } = useQuery(get_programs, {
@@ -35,10 +35,21 @@ export function ViewProgram() {
 
     return (
         <>
-            <Link className="edit-form d-flex"
-                id="submit" to={`/program/${id}/edit`}>
-                <Edit></Edit>
-            </Link >
+            <div className="block">
+                <button className="edit-back-view d-flex" id="submit"
+                    onClick={(e) => {
+                        e.preventDefault()
+                        navigate(-1)
+                    }
+                    }>
+                    <KeyboardDoubleArrowLeftIcon>
+                    </KeyboardDoubleArrowLeftIcon>
+                </button>
+                <Link className="edit-form d-flex"
+                    id="submit" to={`/program/${id}/edit`}>
+                    <Edit></Edit>
+                </Link>
+            </div>
             <div className="view-program w-100 h-100">
                 {loading ? <Loader /> :
                     <div action="view-cont">

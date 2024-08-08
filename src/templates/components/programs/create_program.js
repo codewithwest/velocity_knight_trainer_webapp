@@ -14,7 +14,6 @@ import { KeyboardDoubleArrowLeftIcon } from "../../../providers/icons";
 export function CreateProgram() {
   const navigate = useNavigate()
 
-
   const [formdata, setFormData] = useState(create_program_data);
   const [exercise_data, setExerciseData] = useState({})
   const [exercise_count, addExercise] = useState(1);
@@ -81,7 +80,8 @@ export function CreateProgram() {
     </button>
       <div className="create-program w-100 h-100">
         {
-          loading ? <Loader /> :
+          loading ?
+            <Loader /> :
             CreateUpdateForm(formdata, handleChange,
               handleExerciseChange, addExerciseTot,
               createprogram, Array.from(Array(exercise_count)), "new")

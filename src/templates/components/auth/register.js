@@ -1,14 +1,13 @@
-import "../../styles/auth/Register.css";
-import "../../styles/constants.css";
+import "../../../styles/components/auth/register.css";
+import "../../../styles/constants.css";
 import { useEffect, useMemo, useState } from "react";
-import { initial_registration_form_data } from "../../providers/data_schema/schemas.js";
+import { initial_registration_form_data } from "../../../providers/data_schema/schemas.js";
 import { Link, useNavigate } from "react-router-dom";
-import { register_user } from "../../providers/data_schema/graphql/user.js";
+import { register_user } from "../../../providers/data_schema/graphql/user.js";
 import { useMutation } from "@apollo/client";
-import Loader from "../components/loader.js";
+import Loader from '../loader'
 
 export default function Register({ auth_stat }) {
-  // let [auth_state, setfirst] = useState(auth_stat);
   const navigate = useNavigate();
 
   const [formdata, setFormData] = useState(initial_registration_form_data);

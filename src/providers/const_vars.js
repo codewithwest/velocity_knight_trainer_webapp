@@ -12,3 +12,9 @@
 //     [main_logo, 'this', 'this', 'this'],
 // ]
 // export { resolve, aboutCards }
+
+let use_query_const = {
+    cacheTime: 1000 * 60 * 60, // saved for 1 hour
+    refetchInterval: 1000 * 60 * 5, // refreshes every 5 mins
+}
+export { use_query_const }

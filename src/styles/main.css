@@ -75,12 +75,9 @@
 
 .content {
     padding: 20px;
-    flex-wrap: wrap;
     height: 100%;
     overflow-y: scroll;
-    display: flexbox;
-    flex-basis: auto;
-    flex-wrap: wrap;
+    flex-direction: column;
     z-index: 9;
 }
 

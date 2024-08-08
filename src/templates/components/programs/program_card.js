@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom"
+import { LaunchIcon } from "../../../providers/icons"
 import "../../../styles/components/program_cards.css";
-import { OpenInBrowserOutlined } from "@mui/icons-material"
-
 export default function ProgramCards(program) {
     return (
         <div className="program-card w-100 rounded-md
                    shadow-sm no-underline p-2">
             <div className="d-flex w-100">
-                <h4 key={program.id} className="program-header d-flex center-content w-100 p-1 overflow-hidden">
-                    {program.name ?? "standard"}</h4>
-                <Link className="d-flex center-content p-2 mb-auto" to={{ pathname: `/programs/${program.id}`, state: program }}>
-                    <OpenInBrowserOutlined></OpenInBrowserOutlined>
+                <h4 key={program?.id} className="program-header d-flex center-content w-100 p-1 overflow-hidden">
+                    {program?.name ?? "standard"}</h4>
+                <Link className="d-flex center-content p-2 mb-auto view-link"
+                    to={{ pathname: `/programs/${program.id}`, state: program }}>
+                    <LaunchIcon></LaunchIcon>
                 </Link>
             </div>
             <div className="flex flex-col">

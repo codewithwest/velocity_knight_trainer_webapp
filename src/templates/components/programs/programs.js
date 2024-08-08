@@ -5,6 +5,8 @@ import { useQuery } from "@apollo/client";
 import "../../../styles/components/program_cards.css"
 import AddBoxOutlined from "@mui/icons-material/AddBoxOutlined.js";
 import { Link } from "react-router-dom";
+import { use_query_const } from "../../../providers/const_vars.js";
+import Loader from "../loader.js";
 
 export function Programs({ is_logged_in }) {
 
@@ -12,6 +14,7 @@ export function Programs({ is_logged_in }) {
         variables: { input: { keys: parseInt(localStorage.getItem("id")) } },
         fetchPolicy: "cache-and-network",
         nextFetchPolicy: "cache-first",
+        ...use_query_const
     });
 
     let all_programs = useMemo(() =>
@@ -29,15 +32,17 @@ export function Programs({ is_logged_in }) {
                 </Link>
             </div>
             <br />
-            {all_programs?.map((program, index) =>
-            (
+            <div className="d-flex wrap">
+                {loading ? <Loader /> : all_programs?.map((program, index) =>
+                (
 
-                <div key={index} className="programs-cont rounded-md">
-                    <div key={program?.id} className="program-card-cont">
-                        {ProgramCards(program)}
+                    <div key={index} className="programs-cont rounded-md">
+                        <div key={program?.id} className="program-card-cont">
+                            {ProgramCards(program)}
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
         </>
 
     )

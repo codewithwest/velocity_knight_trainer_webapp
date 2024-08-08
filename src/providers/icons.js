@@ -10,6 +10,10 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import AddBoxOutlined from "@mui/icons-material/AddBoxOutlined";
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import LaunchIcon from '@mui/icons-material/Launch';
+import CallMadeIcon from '@mui/icons-material/CallMade';
+import Edit from '@mui/icons-material/Edit';
+
 export {
     FlashOnIcon,
     AccountCircleIcon,
@@ -22,6 +26,9 @@ export {
     PersonAddAlt1Icon,
     TrendingUpIcon,
     AddBoxOutlined,
-    KeyboardDoubleArrowLeftIcon
+    KeyboardDoubleArrowLeftIcon,
+    LaunchIcon,
+    CallMadeIcon,
+    Edit,
 
 }

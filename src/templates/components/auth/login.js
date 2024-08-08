@@ -1,11 +1,11 @@
-import "../../styles/auth/login.css";
-import "../../styles/constants.css";
+import "../../../styles/components/auth/login.css";
+// import "../../../styles/constants.css";
 import { useEffect, useMemo, useState } from "react";
-import { initial_login_form_data } from "../../providers/data_schema/schemas.js";
+import { initial_login_form_data } from "../../../providers/data_schema/schemas.js";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { login_user } from "../../providers/data_schema/graphql/user.js";
-import Loader from '../../templates/components/loader.js'
+import { login_user } from "../../../providers/data_schema/graphql/user.js";
+import Loader from '../loader.js'
 
 export default function Login(props) {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ export default function Login(props) {
       localStorage.setItem("id", login_response?.id);
       setTimeout(() => navigate('/'), 5)
     }
-  }, [login_response, user_data])
+  }, [login_response, user_data, navigate])
 
   return (
     <div className="login-form-cont pos-abs d-flex center-content">
